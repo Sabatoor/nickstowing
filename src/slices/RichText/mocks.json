@@ -1,0 +1,46 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"rich_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Eiusmod anim non eiusmod voluptate id mollit adipisicing do laborum ex. Eiusmod anim non eiusmod voluptate id mollit adipisicing do laborum ex. ",
+							"spans": []
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "image",
+						"data": {
+							"__TYPE__": "ImageContent",
+							"url": "https://images.unsplash.com/photo-1577234286642-fc512a5f8f11?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTAxNzg3NzF8MA&ixlib=rb-4.0.3&q=85",
+							"alt": "sliced grapefruits",
+							"origin": {
+								"id": "ezSFnAFi9hY",
+								"url": "https://images.unsplash.com/photo-1577234286642-fc512a5f8f11?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxjaXRydXMlMjBmcnVpdHxlbnwwfHx8fDE3MTAxNzg3NzF8MA&ixlib=rb-4.0.3&q=85",
+								"width": 3024,
+								"height": 4032
+							},
+							"width": 3024,
+							"height": 4032,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							}
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

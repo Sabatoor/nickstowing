@@ -1,5 +1,5 @@
-import { PrismicRichText } from '@/components/PrismicRichText'
-import Section from '@/components/Section'
+import { PrismicRichText } from '@/components/typography/PrismicRichText'
+import Section from '@/components/layout/Section'
 import { Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 
@@ -17,6 +17,7 @@ const RichText = ({ slice }: RichTextProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       width="xl"
+      className="bg-primary"
     >
       <PrismicRichText field={slice.primary.rich_text} />
     </Section>

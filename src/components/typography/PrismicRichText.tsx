@@ -4,7 +4,7 @@ import {
   PrismicRichTextProps,
 } from '@prismicio/react'
 import * as prismic from '@prismicio/client'
-import Heading from '@/components/Heading'
+import Heading from '@/components/typography/Heading'
 import Image from 'next/image'
 import React from 'react'
 

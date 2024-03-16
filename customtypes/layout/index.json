@@ -1,0 +1,48 @@
+{
+  "format": "custom",
+  "id": "layout",
+  "label": "Layout",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Header": {
+      "call_label": {
+        "type": "Text",
+        "config": {
+          "label": "Call Label",
+          "placeholder": "What should the call button say?"
+        }
+      },
+      "call_link": {
+        "type": "Link",
+        "config": {
+          "label": "Call Link",
+          "placeholder": "Where should the call button go?",
+          "allowTargetBlank": false,
+          "select": null
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "menu_item": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "Footer": {
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

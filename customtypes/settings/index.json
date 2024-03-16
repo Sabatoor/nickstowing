@@ -20,6 +20,13 @@
           "placeholder": ""
         }
       },
+      "phone": {
+        "type": "Text",
+        "config": {
+          "label": "Phone",
+          "placeholder": ""
+        }
+      },
       "site_meta_description": {
         "type": "Text",
         "config": {

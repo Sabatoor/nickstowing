@@ -187,6 +187,17 @@ interface LayoutDocumentData {
   privacy_link: prismic.LinkField
 
   /**
+   * Copyright field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.copyright
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  copyright: prismic.KeyTextField
+
+  /**
    * Slice Zone field in *Layout*
    *
    * - **Field Type**: Slice Zone

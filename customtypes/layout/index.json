@@ -50,6 +50,13 @@
           "select": null
         }
       },
+      "copyright": {
+        "type": "Text",
+        "config": {
+          "label": "Copyright",
+          "placeholder": ""
+        }
+      },
       "slices1": {
         "type": "Slices",
         "fieldset": "Slice Zone",

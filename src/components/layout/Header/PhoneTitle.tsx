@@ -19,7 +19,9 @@ const PhoneTitle = ({
             <p className="text-2xl font-black lg:text-3xl">{phone}</p>
           )}
           {isFilled.keyText(site_title) && (
-            <h1 className={cn('font-black')}>{site_title}</h1>
+            <h1 className={cn('text-sm font-black lg:text-base')}>
+              {site_title}
+            </h1>
           )}
         </PrismicNextLink>
       ) : (

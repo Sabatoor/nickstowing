@@ -1,23 +1,21 @@
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
+import { cn } from '@/lib/utils'
+import { components } from '@/slices'
+import { PrismicNextLink } from '@prismicio/next'
+import { SliceZone } from '@prismicio/react'
 import {
   LayoutDocumentData,
   MenuItemSliceWithSubMenuPrimary,
   SubMenuDocument,
 } from '../../../../prismicio-types'
-import { PrismicNextLink } from '@prismicio/next'
-import { SliceZone } from '@prismicio/react'
-import { components } from '@/slices'
-import { cn } from '@/lib/utils'
 
 type MenuProps = {
   data: LayoutDocumentData

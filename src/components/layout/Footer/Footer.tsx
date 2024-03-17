@@ -1,4 +1,6 @@
 import { createClient } from '@/prismicio'
+import FooterContent from './FooterContent'
+import FooterCallNow from './FooterCallNow'
 
 const Footer = async () => {
   const client = createClient()
@@ -7,6 +9,9 @@ const Footer = async () => {
     graphQuery: `
     {
       layout {
+        copyright
+        call_label
+        call_link
         privacy_label
         privacy_link
         slices1 {
@@ -34,7 +39,16 @@ const Footer = async () => {
     }
     `,
   })
-  return <>Footer</>
+  const settings = await client.getSingle('settings')
+  return (
+    <>
+      <FooterContent data={layout.data} settings={settings.data} />
+      <FooterCallNow
+        link={layout.data.call_link}
+        label={layout.data.call_label}
+      />
+    </>
+  )
 }
 
 export default Footer

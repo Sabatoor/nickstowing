@@ -42,7 +42,7 @@ const Navbar = ({ data, settings }: NavbarProps): JSX.Element => {
       )}
     >
       <Section width="xl">
-        <div className="flex justify-between">
+        <div className="flex items-center justify-between">
           <PhoneTitle
             phone={settings.phone}
             call_link={data.call_link}
@@ -53,7 +53,7 @@ const Navbar = ({ data, settings }: NavbarProps): JSX.Element => {
               <Menu data={data} className="hidden lg:block" />
               <MobileMenu
                 data={data}
-                className="lg:hidden"
+                className="flex items-center lg:hidden"
                 site_title={settings.site_title}
                 phone={settings.phone}
               />

@@ -1,4 +1,5 @@
 import { Content } from '@prismicio/client'
+import { PrismicNextImage } from '@prismicio/next'
 import { SliceComponentProps } from '@prismicio/react'
 
 /**
@@ -14,9 +15,16 @@ const FooterImage = ({ slice }: FooterImageProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="flex justify-center"
     >
-      Placeholder component for footer_image (variation: {slice.variation})
-      Slices
+      <PrismicNextImage
+        field={slice.primary.image}
+        imgixParams={{ ar: '1:1', fit: 'crop' }}
+        width={360}
+        height={360}
+        quality={80}
+        className="rounded-lg shadow-md"
+      />
     </section>
   )
 }

@@ -20,7 +20,6 @@ type NavbarProps = {
 const Navbar = ({ data, settings }: NavbarProps): JSX.Element => {
   const container = useRef(null)
   const [hidden, setHidden] = useState(false)
-  const [transparent, setTransparent] = useState(true)
   const { scrollY } = useScroll()
   useMotionValueEvent(scrollY, 'change', latest => {
     const previous: number = scrollY.getPrevious() || 0
@@ -28,10 +27,8 @@ const Navbar = ({ data, settings }: NavbarProps): JSX.Element => {
       setHidden(true)
     } else if (latest === 0) {
       setHidden(false)
-      setTransparent(true)
     } else {
       setHidden(false)
-      setTransparent(false)
     }
   })
   return (
@@ -41,10 +38,7 @@ const Navbar = ({ data, settings }: NavbarProps): JSX.Element => {
       animate={hidden ? 'hidden' : 'visible'}
       transition={{ duration: 0.4, ease: 'easeInOut' }}
       className={cn(
-        'fixed top-0 w-full bg-primary transition duration-300 ease-in-out',
-        {
-          'bg-transparent': transparent,
-        },
+        'sticky top-0 w-full bg-primary transition duration-300 ease-in-out',
       )}
     >
       <Section width="xl">

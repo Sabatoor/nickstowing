@@ -17,7 +17,6 @@ const RichText = ({ slice }: RichTextProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       width="xl"
-      className="bg-primary"
     >
       <PrismicRichText field={slice.primary.rich_text} />
     </Section>

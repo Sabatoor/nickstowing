@@ -3,7 +3,7 @@ import '@/app/globals.css'
 import { createClient } from '@/prismicio'
 import { cn } from '@/lib/utils'
 import Header from '@/components/layout/Header/Header'
-import Footer from '@/components/layout/Footer'
+import Footer from '@/components/layout/Footer/Footer'
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient()

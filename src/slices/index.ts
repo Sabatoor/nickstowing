@@ -3,6 +3,9 @@
 import dynamic from 'next/dynamic'
 
 export const components = {
+  footer_image: dynamic(() => import('./FooterImage')),
+  footer_item: dynamic(() => import('./FooterItem')),
+  footer_list: dynamic(() => import('./FooterList')),
   menu_item: dynamic(() => import('./MenuItem')),
   rich_text: dynamic(() => import('./RichText')),
   sub_menu_heading: dynamic(() => import('./SubMenuHeading')),

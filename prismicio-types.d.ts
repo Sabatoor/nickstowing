@@ -4,6 +4,62 @@ import type * as prismic from '@prismicio/client'
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] }
 
+type FooterLayoutDocumentDataSlicesSlice = FooterListSlice
+
+type FooterLayoutDocumentDataSlices1Slice = FooterImageSlice
+
+type FooterLayoutDocumentDataSlices2Slice = FooterListSlice
+
+/**
+ * Content for Footer Layout documents
+ */
+interface FooterLayoutDocumentData {
+  /**
+   * Slice Zone field in *Footer Layout*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_layout.slices[]
+   * - **Tab**: Column 1
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<FooterLayoutDocumentDataSlicesSlice> /**
+   * Slice Zone field in *Footer Layout*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_layout.slices1[]
+   * - **Tab**: Column 2
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices1: prismic.SliceZone<FooterLayoutDocumentDataSlices1Slice> /**
+   * Slice Zone field in *Footer Layout*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_layout.slices2[]
+   * - **Tab**: Column 3
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices2: prismic.SliceZone<FooterLayoutDocumentDataSlices2Slice>
+}
+
+/**
+ * Footer Layout document from Prismic
+ *
+ * - **API ID**: `footer_layout`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterLayoutDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterLayoutDocumentData>,
+    'footer_layout',
+    Lang
+  >
+
 type HomepageDocumentDataSlicesSlice = RichTextSlice
 
 /**
@@ -71,6 +127,8 @@ export type HomepageDocument<Lang extends string = string> =
 
 type LayoutDocumentDataSlicesSlice = MenuItemSlice
 
+type LayoutDocumentDataSlices1Slice = FooterItemSlice
+
 /**
  * Content for Layout documents
  */
@@ -107,15 +165,37 @@ interface LayoutDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
   slices: prismic.SliceZone<LayoutDocumentDataSlicesSlice> /**
-   * Logo field in *Layout*
+   * Privacy Label field in *Layout*
    *
-   * - **Field Type**: Image
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: layout.logo
+   * - **API ID Path**: layout.privacy_label
    * - **Tab**: Footer
-   * - **Documentation**: https://prismic.io/docs/field#image
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  logo: prismic.ImageField<never>
+  privacy_label: prismic.KeyTextField
+
+  /**
+   * Privacy Link field in *Layout*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.privacy_link
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  privacy_link: prismic.LinkField
+
+  /**
+   * Slice Zone field in *Layout*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.slices1[]
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices1: prismic.SliceZone<LayoutDocumentDataSlices1Slice>
 }
 
 /**
@@ -212,7 +292,7 @@ export type SettingsDocument<Lang extends string = string> =
 
 type SubMenuDocumentDataSlicesSlice = SubMenuItemSlice | SubMenuHeadingSlice
 
-type SubMenuDocumentDataSlices1Slice = SubMenuHeadingSlice | SubMenuItemSlice
+type SubMenuDocumentDataSlices1Slice = SubMenuItemSlice | SubMenuHeadingSlice
 
 type SubMenuDocumentDataSlices2Slice = SubMenuItemSlice | SubMenuHeadingSlice
 
@@ -254,7 +334,7 @@ interface SubMenuDocumentData {
  * Sub Menu document from Prismic
  *
  * - **API ID**: `sub_menu`
- * - **Repeatable**: `false`
+ * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
@@ -267,10 +347,196 @@ export type SubMenuDocument<Lang extends string = string> =
   >
 
 export type AllDocumentTypes =
+  | FooterLayoutDocument
   | HomepageDocument
   | LayoutDocument
   | SettingsDocument
   | SubMenuDocument
+
+/**
+ * Primary content in *FooterImage → Primary*
+ */
+export interface FooterImageSliceDefaultPrimary {
+  /**
+   * Image field in *FooterImage → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_image.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+}
+
+/**
+ * Default variation for FooterImage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterImageSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<FooterImageSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *FooterImage*
+ */
+type FooterImageSliceVariation = FooterImageSliceDefault
+
+/**
+ * FooterImage Shared Slice
+ *
+ * - **API ID**: `footer_image`
+ * - **Description**: FooterImage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterImageSlice = prismic.SharedSlice<
+  'footer_image',
+  FooterImageSliceVariation
+>
+
+/**
+ * Primary content in *FooterItem → Primary*
+ */
+export interface FooterItemSliceDefaultPrimary {
+  /**
+   * Heading field in *FooterItem → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_item.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField
+}
+
+/**
+ * Default variation for FooterItem Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterItemSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<FooterItemSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Primary content in *FooterItem → Primary*
+ */
+export interface FooterItemSliceMultiColumnPrimary {
+  /**
+   * Heading field in *FooterItem → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_item.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField
+
+  /**
+   * Multi Column Layout field in *FooterItem → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_item.primary.multi_column_layout
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  multi_column_layout: prismic.ContentRelationshipField<'footer_layout'>
+}
+
+/**
+ * MultiColumn variation for FooterItem Slice
+ *
+ * - **API ID**: `multiColumn`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterItemSliceMultiColumn = prismic.SharedSliceVariation<
+  'multiColumn',
+  Simplify<FooterItemSliceMultiColumnPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *FooterItem*
+ */
+type FooterItemSliceVariation =
+  | FooterItemSliceDefault
+  | FooterItemSliceMultiColumn
+
+/**
+ * FooterItem Shared Slice
+ *
+ * - **API ID**: `footer_item`
+ * - **Description**: FooterItem
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterItemSlice = prismic.SharedSlice<
+  'footer_item',
+  FooterItemSliceVariation
+>
+
+/**
+ * Primary content in *FooterList → Items*
+ */
+export interface FooterListSliceDefaultItem {
+  /**
+   * Label field in *FooterList → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_list.items[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField
+
+  /**
+   * Link field in *FooterList → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_list.items[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField
+}
+
+/**
+ * Default variation for FooterList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterListSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Record<string, never>,
+  Simplify<FooterListSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *FooterList*
+ */
+type FooterListSliceVariation = FooterListSliceDefault
+
+/**
+ * FooterList Shared Slice
+ *
+ * - **API ID**: `footer_list`
+ * - **Description**: FooterList
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterListSlice = prismic.SharedSlice<
+  'footer_list',
+  FooterListSliceVariation
+>
 
 /**
  * Primary content in *MenuItem → Primary*
@@ -568,12 +834,18 @@ declare module '@prismicio/client' {
 
   namespace Content {
     export type {
+      FooterLayoutDocument,
+      FooterLayoutDocumentData,
+      FooterLayoutDocumentDataSlicesSlice,
+      FooterLayoutDocumentDataSlices1Slice,
+      FooterLayoutDocumentDataSlices2Slice,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
       LayoutDocument,
       LayoutDocumentData,
       LayoutDocumentDataSlicesSlice,
+      LayoutDocumentDataSlices1Slice,
       SettingsDocument,
       SettingsDocumentData,
       SubMenuDocument,
@@ -582,6 +854,20 @@ declare module '@prismicio/client' {
       SubMenuDocumentDataSlices1Slice,
       SubMenuDocumentDataSlices2Slice,
       AllDocumentTypes,
+      FooterImageSlice,
+      FooterImageSliceDefaultPrimary,
+      FooterImageSliceVariation,
+      FooterImageSliceDefault,
+      FooterItemSlice,
+      FooterItemSliceDefaultPrimary,
+      FooterItemSliceMultiColumnPrimary,
+      FooterItemSliceVariation,
+      FooterItemSliceDefault,
+      FooterItemSliceMultiColumn,
+      FooterListSlice,
+      FooterListSliceDefaultItem,
+      FooterListSliceVariation,
+      FooterListSliceDefault,
       MenuItemSlice,
       MenuItemSliceDefaultPrimary,
       MenuItemSliceWithSubMenuPrimary,

@@ -53,7 +53,9 @@ const MobileMenu = ({
         <SheetContent>
           <SheetHeader>
             {isFilled.keyText(site_title) && (
-              <SheetTitle>{site_title}</SheetTitle>
+              <SheetTitle className="font-bold text-primary">
+                {site_title}
+              </SheetTitle>
             )}
             {isFilled.keyText(phone) && (
               <p className="text-sm">

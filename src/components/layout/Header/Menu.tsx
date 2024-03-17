@@ -26,7 +26,6 @@ type MenuProps = {
 
 const Menu = ({ data, className }: MenuProps): JSX.Element => {
   const { slices } = data
-
   return (
     <div className={cn('flex-1 text-primary-foreground', className)}>
       <NavigationMenu>
@@ -38,9 +37,9 @@ const Menu = ({ data, className }: MenuProps): JSX.Element => {
               const sub_menu =
                 slicePrimary.sub_menu as unknown as SubMenuDocument
               const cols =
-                (sub_menu.data.slices.length > 0 ? 1 : 0) +
-                (sub_menu.data.slices1.length > 0 ? 1 : 0) +
-                (sub_menu.data.slices2.length > 0 ? 1 : 0)
+                (sub_menu.data?.slices.length > 0 ? 1 : 0) +
+                (sub_menu.data?.slices1.length > 0 ? 1 : 0) +
+                (sub_menu.data?.slices2.length > 0 ? 1 : 0)
               return (
                 <NavigationMenuItem key={slice.id}>
                   <NavigationMenuTrigger
@@ -50,7 +49,7 @@ const Menu = ({ data, className }: MenuProps): JSX.Element => {
                   </NavigationMenuTrigger>
                   <NavigationMenuContent className="p-3">
                     <div
-                      className={cn('grid w-[980px]', {
+                      className={cn('grid w-[980px] gap-x-2', {
                         'grid-cols-2': cols === 2,
                         'grid-cols-3': cols === 3,
                       })}

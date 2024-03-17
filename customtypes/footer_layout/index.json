@@ -1,7 +1,7 @@
 {
   "format": "custom",
-  "id": "sub_menu",
-  "label": "Sub Menu",
+  "id": "footer_layout",
+  "label": "Footer Layout",
   "repeatable": true,
   "status": true,
   "json": {
@@ -11,10 +11,7 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "sub_menu_item": {
-              "type": "SharedSlice"
-            },
-            "sub_menu_heading": {
+            "footer_list": {
               "type": "SharedSlice"
             }
           }
@@ -27,10 +24,7 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "sub_menu_item": {
-              "type": "SharedSlice"
-            },
-            "sub_menu_heading": {
+            "footer_image": {
               "type": "SharedSlice"
             }
           }
@@ -43,10 +37,7 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "sub_menu_item": {
-              "type": "SharedSlice"
-            },
-            "sub_menu_heading": {
+            "footer_list": {
               "type": "SharedSlice"
             }
           }

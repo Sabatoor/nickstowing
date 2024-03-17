@@ -1,3 +1,4 @@
+import Heading from '@/components/typography/Heading'
 import { Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 
@@ -16,8 +17,9 @@ const SubMenuHeading = ({ slice }: SubMenuHeadingProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      Placeholder component for sub_menu_heading (variation: {slice.variation})
-      Slices
+      <Heading as="h2" size="2xl">
+        {slice.primary.heading}
+      </Heading>
     </section>
   )
 }

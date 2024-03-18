@@ -36,7 +36,7 @@ const Features = ({ slice }: FeaturesProps): JSX.Element => {
         }}
       />
       {slice.variation !== 'single' && (
-        <div className="flex flex-wrap justify-evenly gap-y-6 lg:gap-x-12 lg:gap-y-0">
+        <div className="flex flex-wrap justify-evenly gap-6 lg:gap-12">
           {slice.items.length > 0 &&
             slice.items.map((item, index) => {
               return (

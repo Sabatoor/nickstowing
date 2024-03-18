@@ -68,7 +68,7 @@ const Steps = ({ slice }: StepsProps): JSX.Element => {
       {slice.items.length > 0 && (
         <div
           className={cn(
-            'flex flex-col flex-wrap justify-evenly lg:flex-row lg:gap-x-8',
+            'flex flex-col flex-wrap items-center justify-evenly lg:flex-row lg:gap-x-8',
           )}
         >
           {slice.items.map((item, index) => {

@@ -13,7 +13,7 @@ type FooterCallNowProps = {
 
 const FooterCallNow = ({ label, link }: FooterCallNowProps): JSX.Element => {
   const container = useRef(null)
-  const [hidden, setHidden] = useState(false)
+  const [hidden, setHidden] = useState(true)
   const { scrollY } = useScroll()
   useMotionValueEvent(scrollY, 'change', latest => {
     const previous: number = scrollY.getPrevious() || 0

@@ -1,0 +1,115 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "leftImage",
+		"primary": {
+			"image": {
+				"origin": {
+					"id": "yttMVKZqllo",
+					"url": "https://images.unsplash.com/photo-1464753636159-34a03ff9cb02?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw2fHxqdW5rJTIwY2FyfGVufDB8fHx8MTcxMDY5MjYzOHww&ixlib=rb-4.0.3&q=85",
+					"width": 5472,
+					"height": 3648
+				},
+				"url": "https://images.unsplash.com/photo-1464753636159-34a03ff9cb02?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw2fHxqdW5rJTIwY2FyfGVufDB8fHx8MTcxMDY5MjYzOHww&ixlib=rb-4.0.3&q=85",
+				"width": 5472,
+				"height": 3648,
+				"edit": {
+					"background": "transparent",
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					}
+				},
+				"credits": null,
+				"alt": "classic vehicle near green trees at daytime",
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Eco-Friendly Car, Truck, & Van Removal Today",
+							"spans": []
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "We pay the more then our competition because we believe in giving you the true value of your old broken down vehicle.  We consider every aspect of value and rate the overall condition of each of these components. We then pass the true value of these articles on to you, this is why we can offer you the best competitive price, in cash, for any intact vehicle, running or not.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Eco-Friendly Car, Truck, & Van Removal Today",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 44
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "We pay the more then our competition because we believe in giving you the true value of your old broken down vehicle.  We consider every aspect of value and rate the overall condition of each of these components. We then pass the true value of these articles on to you, this is why we can offer you the best competitive price, in cash, for any intact vehicle, running or not.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"image": {
+				"origin": {
+					"id": "yttMVKZqllo",
+					"url": "https://images.unsplash.com/photo-1464753636159-34a03ff9cb02?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw2fHxqdW5rJTIwY2FyfGVufDB8fHx8MTcxMDY5MjYzOHww&ixlib=rb-4.0.3&q=85",
+					"width": 5472,
+					"height": 3648
+				},
+				"url": "https://images.unsplash.com/photo-1464753636159-34a03ff9cb02?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw2fHxqdW5rJTIwY2FyfGVufDB8fHx8MTcxMDY5MjYzOHww&ixlib=rb-4.0.3&q=85",
+				"width": 5472,
+				"height": 3648,
+				"edit": {
+					"background": "transparent",
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					}
+				},
+				"credits": null,
+				"alt": "classic vehicle near green trees at daytime",
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			}
+		},
+		"items": []
+	}
+]

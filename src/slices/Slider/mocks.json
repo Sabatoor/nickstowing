@@ -1,0 +1,97 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"header": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Recently Sold",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"town",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Vancouver"
+						}
+					],
+					[
+						"value",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "$320"
+						}
+					],
+					[
+						"year",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "1999"
+						}
+					],
+					[
+						"make_and_model",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Jeep Cherokee"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"town",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Chilliwack"
+						}
+					],
+					[
+						"value",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "$275"
+						}
+					],
+					[
+						"year",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "1996"
+						}
+					],
+					[
+						"make_and_model",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Mazda 626"
+						}
+					]
+				]
+			}
+		]
+	}
+]

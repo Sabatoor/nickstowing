@@ -1,0 +1,68 @@
+{
+  "id": "steps",
+  "type": "SharedSlice",
+  "name": "Steps",
+  "description": "Steps",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "sub_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Sub Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading3"
+          }
+        }
+      },
+      "items": {
+        "icon": {
+          "type": "Select",
+          "config": {
+            "label": "Icon",
+            "placeholder": "",
+            "options": [
+              "phone-call",
+              "car",
+              "banknote"
+            ]
+          }
+        },
+        "step_name": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Step Name",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        },
+        "step_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Step Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,em,hyperlink"
+          }
+        }
+      }
+    }
+  ]
+}

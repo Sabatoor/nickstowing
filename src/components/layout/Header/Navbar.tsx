@@ -38,7 +38,7 @@ const Navbar = ({ data, settings }: NavbarProps): JSX.Element => {
       animate={hidden ? 'hidden' : 'visible'}
       transition={{ duration: 0.4, ease: 'easeInOut' }}
       className={cn(
-        'sticky top-0 w-full bg-primary transition duration-300 ease-in-out',
+        'sticky top-0 z-20 w-full bg-primary transition duration-300 ease-in-out',
       )}
     >
       <Section width="xl">

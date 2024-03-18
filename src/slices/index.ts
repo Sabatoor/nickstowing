@@ -3,11 +3,16 @@
 import dynamic from 'next/dynamic'
 
 export const components = {
+  features: dynamic(() => import('./Features')),
   footer_image: dynamic(() => import('./FooterImage')),
   footer_item: dynamic(() => import('./FooterItem')),
   footer_list: dynamic(() => import('./FooterList')),
+  hero: dynamic(() => import('./Hero')),
+  image_with_text: dynamic(() => import('./ImageWithText')),
   menu_item: dynamic(() => import('./MenuItem')),
   rich_text: dynamic(() => import('./RichText')),
+  slider: dynamic(() => import('./Slider')),
+  steps: dynamic(() => import('./Steps')),
   sub_menu_heading: dynamic(() => import('./SubMenuHeading')),
   sub_menu_item: dynamic(() => import('./SubMenuItem')),
 }

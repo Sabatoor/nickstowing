@@ -1,0 +1,83 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Nick's Green Auto Towing",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"image": {
+				"origin": {
+					"id": "h1n2fApPQzo",
+					"url": "https://images.unsplash.com/photo-1611083497391-971ad20e269a?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHx0b3clMjB0cnVja3xlbnwwfHx8fDE3MTA2ODE1MTV8MA&ixlib=rb-4.0.3&q=85",
+					"width": 6720,
+					"height": 4480
+				},
+				"url": "https://images.unsplash.com/photo-1611083497391-971ad20e269a?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHx0b3clMjB0cnVja3xlbnwwfHx8fDE3MTA2ODE1MTV8MA&ixlib=rb-4.0.3&q=85",
+				"width": 6720,
+				"height": 4480,
+				"edit": {
+					"background": "transparent",
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					}
+				},
+				"credits": null,
+				"alt": "brown and white vintage car on snow covered ground during daytime",
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"sub_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Eco-Friendly",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"tag_line": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Scrap Car, Truck, or Van Today",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"label": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Get Quote Today"
+			},
+			"link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
+				}
+			}
+		},
+		"items": []
+	}
+]

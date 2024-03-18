@@ -1,0 +1,450 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Recycle Your Car Today!",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"feature_heading",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Scrap Car Removal"
+						}
+					],
+					[
+						"feature_image",
+						{
+							"origin": {
+								"id": "ys_PVhkEC6c",
+								"url": "https://images.unsplash.com/photo-1461724947009-3c626ff3d2bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw1fHxqdW5rJTIwY2FyfGVufDB8fHx8MTcxMDY5MjYzOHww&ixlib=rb-4.0.3&q=85",
+								"width": 5760,
+								"height": 3840
+							},
+							"url": "https://images.unsplash.com/photo-1461724947009-3c626ff3d2bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw1fHxqdW5rJTIwY2FyfGVufDB8fHx8MTcxMDY5MjYzOHww&ixlib=rb-4.0.3&q=85",
+							"width": 5760,
+							"height": 3840,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"credits": null,
+							"alt": "vintage car on garage during daytime",
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					],
+					[
+						"label",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Learn More"
+						}
+					],
+					[
+						"link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "http://twitter.com"
+							}
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"feature_heading",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Scrap Truck Removal"
+						}
+					],
+					[
+						"feature_image",
+						{
+							"url": "https://images.unsplash.com/photo-1561776721-568f4c6e4bc1?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxN3x8anVuayUyMHRydWNrfGVufDB8fHx8MTcxMDY5NjkyOXww&ixlib=rb-4.0.3&q=85",
+							"alt": "rusted brown pick up truck",
+							"origin": {
+								"id": "YsqnfdOh3Ns",
+								"url": "https://images.unsplash.com/photo-1561776721-568f4c6e4bc1?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxN3x8anVuayUyMHRydWNrfGVufDB8fHx8MTcxMDY5NjkyOXww&ixlib=rb-4.0.3&q=85",
+								"width": 3008,
+								"height": 2000
+							},
+							"width": 3008,
+							"height": 2000,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"credits": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					],
+					[
+						"label",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Learn More"
+						}
+					],
+					[
+						"link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://prismic.io",
+								"target": ""
+							}
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"feature_heading",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Junk Van Removal"
+						}
+					],
+					[
+						"label",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Learn More"
+						}
+					],
+					[
+						"link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://prismic.io",
+								"target": ""
+							}
+						}
+					],
+					[
+						"feature_image",
+						{
+							"url": "https://images.unsplash.com/photo-1423439793616-f2aa4356b37e?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxNXx8b2xkJTIwdmFufGVufDB8fHx8MTcxMDY5NzAwNHww&ixlib=rb-4.0.3&q=85",
+							"alt": "blue and white van parked near green tree",
+							"origin": {
+								"id": "tRQfEwP5P_0",
+								"url": "https://images.unsplash.com/photo-1423439793616-f2aa4356b37e?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxNXx8b2xkJTIwdmFufGVufDB8fHx8MTcxMDY5NzAwNHww&ixlib=rb-4.0.3&q=85",
+								"width": 2000,
+								"height": 1125
+							},
+							"width": 2000,
+							"height": 1125,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"credits": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					]
+				]
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "secondary",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Recycle Your Car Today!",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"feature_heading",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Scrap Car Removal"
+						}
+					],
+					[
+						"feature_image",
+						{
+							"origin": {
+								"id": "ys_PVhkEC6c",
+								"url": "https://images.unsplash.com/photo-1461724947009-3c626ff3d2bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw1fHxqdW5rJTIwY2FyfGVufDB8fHx8MTcxMDY5MjYzOHww&ixlib=rb-4.0.3&q=85",
+								"width": 5760,
+								"height": 3840
+							},
+							"url": "https://images.unsplash.com/photo-1461724947009-3c626ff3d2bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw1fHxqdW5rJTIwY2FyfGVufDB8fHx8MTcxMDY5MjYzOHww&ixlib=rb-4.0.3&q=85",
+							"width": 5760,
+							"height": 3840,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"credits": null,
+							"alt": "vintage car on garage during daytime",
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					],
+					[
+						"label",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Learn More"
+						}
+					],
+					[
+						"link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "http://google.com"
+							}
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"feature_heading",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Scrap Truck Removal"
+						}
+					],
+					[
+						"feature_image",
+						{
+							"url": "https://images.unsplash.com/photo-1561776721-568f4c6e4bc1?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxN3x8anVuayUyMHRydWNrfGVufDB8fHx8MTcxMDY5NjkyOXww&ixlib=rb-4.0.3&q=85",
+							"alt": "rusted brown pick up truck",
+							"origin": {
+								"id": "YsqnfdOh3Ns",
+								"url": "https://images.unsplash.com/photo-1561776721-568f4c6e4bc1?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxN3x8anVuayUyMHRydWNrfGVufDB8fHx8MTcxMDY5NjkyOXww&ixlib=rb-4.0.3&q=85",
+								"width": 3008,
+								"height": 2000
+							},
+							"width": 3008,
+							"height": 2000,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"credits": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					],
+					[
+						"label",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Learn More"
+						}
+					],
+					[
+						"link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://google.com",
+								"target": ""
+							}
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"feature_heading",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Scrap Van Removal"
+						}
+					],
+					[
+						"feature_image",
+						{
+							"url": "https://images.unsplash.com/photo-1423439793616-f2aa4356b37e?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxNXx8b2xkJTIwdmFufGVufDB8fHx8MTcxMDY5NzAwNHww&ixlib=rb-4.0.3&q=85",
+							"alt": "blue and white van parked near green tree",
+							"origin": {
+								"id": "tRQfEwP5P_0",
+								"url": "https://images.unsplash.com/photo-1423439793616-f2aa4356b37e?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxNXx8b2xkJTIwdmFufGVufDB8fHx8MTcxMDY5NzAwNHww&ixlib=rb-4.0.3&q=85",
+								"width": 2000,
+								"height": 1125
+							},
+							"width": 2000,
+							"height": 1125,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"credits": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					],
+					[
+						"label",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Learn More"
+						}
+					],
+					[
+						"link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://google.com",
+								"target": ""
+							}
+						}
+					]
+				]
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "single",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Flatbed Service Available",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"image": {
+				"origin": {
+					"id": "7AGFgnc6w4o",
+					"url": "https://images.unsplash.com/photo-1630005543200-01989c7ec53e?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw5fHx0b3clMjB0cnVja3xlbnwwfHx8fDE3MTA2ODE1MTV8MA&ixlib=rb-4.0.3&q=85",
+					"width": 4838,
+					"height": 3456
+				},
+				"url": "https://images.unsplash.com/photo-1630005543200-01989c7ec53e?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw5fHx0b3clMjB0cnVja3xlbnwwfHx8fDE3MTA2ODE1MTV8MA&ixlib=rb-4.0.3&q=85",
+				"width": 4838,
+				"height": 3456,
+				"edit": {
+					"background": "transparent",
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					}
+				},
+				"credits": null,
+				"alt": "grayscale photo of truck in front of wooden house",
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"label": {
+				"__TYPE__": "FieldContent",
+				"value": "opposite",
+				"type": "Text"
+			},
+			"link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

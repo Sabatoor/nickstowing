@@ -11,6 +11,21 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "slider": {
+              "type": "SharedSlice"
+            },
+            "steps": {
+              "type": "SharedSlice"
+            },
+            "features": {
+              "type": "SharedSlice"
+            },
+            "image_with_text": {
+              "type": "SharedSlice"
+            },
+            "hero": {
+              "type": "SharedSlice"
+            },
             "rich_text": {
               "type": "SharedSlice"
             }

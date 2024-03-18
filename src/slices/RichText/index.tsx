@@ -2,6 +2,7 @@ import { PrismicRichText } from '@/components/typography/PrismicRichText'
 import Section from '@/components/layout/Section'
 import { Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
+import { cn } from '@/lib/utils'
 
 /**
  * Props for `RichText`.
@@ -17,6 +18,7 @@ const RichText = ({ slice }: RichTextProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       width="xl"
+      className={cn('', { 'bg-secondary': slice.variation === 'secondary' })}
     >
       <PrismicRichText field={slice.primary.rich_text} />
     </Section>

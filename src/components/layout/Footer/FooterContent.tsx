@@ -8,6 +8,7 @@ import { SliceZone } from '@prismicio/react'
 import { components } from '@/slices'
 import Copyright from './Copyright'
 import { PrismicNextLink } from '@prismicio/next'
+import { CopyrightIcon } from 'lucide-react'
 
 type FooterContentProps = {
   data: LayoutDocumentData
@@ -23,7 +24,8 @@ const FooterContent = ({ data, settings }: FooterContentProps): JSX.Element => {
         </PrismicNextLink>
       </div>
       <div className="text-center">
-        {data.copyright} <Copyright />
+        {data.copyright} <CopyrightIcon className="inline w-3 pb-1" />{' '}
+        <Copyright /> {settings.site_title}
       </div>
     </Section>
   )

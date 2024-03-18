@@ -1,0 +1,57 @@
+{
+  "id": "slider",
+  "type": "SharedSlice",
+  "name": "Slider",
+  "description": "Slider",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "header": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Header",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        }
+      },
+      "items": {
+        "town": {
+          "type": "Text",
+          "config": {
+            "label": "Town",
+            "placeholder": ""
+          }
+        },
+        "value": {
+          "type": "Text",
+          "config": {
+            "label": "Value",
+            "placeholder": ""
+          }
+        },
+        "year": {
+          "type": "Text",
+          "config": {
+            "label": "Year",
+            "placeholder": ""
+          }
+        },
+        "make_and_model": {
+          "type": "Text",
+          "config": {
+            "label": "Make and Model",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}

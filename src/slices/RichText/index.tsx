@@ -18,7 +18,9 @@ const RichText = ({ slice }: RichTextProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       width="xl"
-      className={cn('', { 'bg-secondary': slice.variation === 'secondary' })}
+      className={cn('py-6 md:py-8 lg:py-12', {
+        'bg-secondary': slice.variation === 'secondary',
+      })}
     >
       <PrismicRichText field={slice.primary.rich_text} />
     </Section>

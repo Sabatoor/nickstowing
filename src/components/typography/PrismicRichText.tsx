@@ -53,7 +53,7 @@ const defaultComponents: JSXMapSerializer = {
   },
   paragraph: ({ children }) => {
     return (
-      <p className="text-foreground prose mx-auto my-6 lg:prose-lg xl:prose-xl lg:my-10">
+      <p className="prose mx-auto my-6 text-foreground lg:prose-lg xl:prose-xl lg:my-10">
         {children}
       </p>
     )
@@ -62,7 +62,7 @@ const defaultComponents: JSXMapSerializer = {
     return (
       <div className="mx-auto max-w-screen-sm overflow-hidden rounded shadow-xl">
         <div
-          className="aspect-w-16 aspect-h-9"
+          className="aspect-h-9 aspect-w-16"
           dangerouslySetInnerHTML={{ __html: node.oembed.html || '' }}
         />
       </div>
@@ -70,7 +70,7 @@ const defaultComponents: JSXMapSerializer = {
   },
   image: ({ node }) => {
     return (
-      <div className="flex justify-center prose mx-auto">
+      <div className="prose mx-auto flex justify-center">
         <Image
           src={node.url}
           width={node.dimensions.width}
@@ -81,6 +81,16 @@ const defaultComponents: JSXMapSerializer = {
         />
       </div>
     )
+  },
+  list: ({ children }) => {
+    return (
+      <ul className="prose mx-auto list-disc lg:prose-lg xl:prose-xl">
+        {children}
+      </ul>
+    )
+  },
+  listItem: ({ children }) => {
+    return <li className="ml-4 md:ml-6 lg:ml-8 xl:ml-10">{children}</li>
   },
 }
 

@@ -1,11 +1,13 @@
 import Section from '@/components/layout/Section'
 import Heading from '@/components/typography/Heading'
-import Icon from '@/components/typography/Icon'
+// import Icon from '@/components/typography/Icon'
 import { PrismicRichText } from '@/components/typography/PrismicRichText'
 import { cn } from '@/lib/utils'
 import { Content, isFilled } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 import React from 'react'
+import { FaPhoneVolume, FaHandHoldingDollar } from 'react-icons/fa6'
+import { GiTowTruck } from 'react-icons/gi'
 
 /**
  * Props for `Steps`.
@@ -16,6 +18,11 @@ export type StepsProps = SliceComponentProps<Content.StepsSlice>
  * Component for "Steps" Slices.
  */
 const Steps = ({ slice }: StepsProps): JSX.Element => {
+  const icons = {
+    phone: FaPhoneVolume,
+    payment: FaHandHoldingDollar,
+    truck: GiTowTruck,
+  }
   return (
     <Section
       data-slice-type={slice.slice_type}
@@ -65,15 +72,16 @@ const Steps = ({ slice }: StepsProps): JSX.Element => {
           )}
         >
           {slice.items.map((item, index) => {
+            let Icon: React.ElementType | null = null
+            if (item.icon && icons[item.icon]) {
+              Icon = icons[item.icon] as React.ElementType
+            }
             return (
               <div
                 key={slice.id + index}
                 className="flex max-w-md shrink flex-col items-center"
               >
-                <Icon
-                  name={item.icon || 'star'}
-                  className="h-32 w-32 text-primary"
-                />
+                {Icon && <Icon className="h-32 w-32 text-primary" />}
                 <PrismicRichText field={item.step_name} />
                 <PrismicRichText field={item.step_description} />
               </div>

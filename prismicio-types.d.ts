@@ -61,6 +61,8 @@ export type FooterLayoutDocument<Lang extends string = string> =
   >
 
 type HomepageDocumentDataSlicesSlice =
+  | FaqSlice
+  | StatisticSlice
   | SliderSlice
   | StepsSlice
   | FeaturesSlice
@@ -369,6 +371,73 @@ export type AllDocumentTypes =
   | LayoutDocument
   | SettingsDocument
   | SubMenuDocument
+
+/**
+ * Primary content in *Faq → Primary*
+ */
+export interface FaqSliceDefaultPrimary {
+  /**
+   * Heading field in *Faq → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+}
+
+/**
+ * Primary content in *Faq → Items*
+ */
+export interface FaqSliceDefaultItem {
+  /**
+   * Question field in *Faq → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq.items[].question
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  question: prismic.RichTextField
+
+  /**
+   * Answer field in *Faq → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq.items[].answer
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  answer: prismic.RichTextField
+}
+
+/**
+ * Default variation for Faq Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<FaqSliceDefaultPrimary>,
+  Simplify<FaqSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *Faq*
+ */
+type FaqSliceVariation = FaqSliceDefault
+
+/**
+ * Faq Shared Slice
+ *
+ * - **API ID**: `faq`
+ * - **Description**: Faq
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqSlice = prismic.SharedSlice<'faq', FaqSliceVariation>
 
 /**
  * Primary content in *Features → Primary*
@@ -1220,6 +1289,61 @@ type SliderSliceVariation = SliderSliceDefault
 export type SliderSlice = prismic.SharedSlice<'slider', SliderSliceVariation>
 
 /**
+ * Primary content in *Statistic → Primary*
+ */
+export interface StatisticSliceDefaultPrimary {
+  /**
+   * Heading field in *Statistic → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: statistic.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField
+
+  /**
+   * Description field in *Statistic → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: statistic.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Default variation for Statistic Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StatisticSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<StatisticSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *Statistic*
+ */
+type StatisticSliceVariation = StatisticSliceDefault
+
+/**
+ * Statistic Shared Slice
+ *
+ * - **API ID**: `statistic`
+ * - **Description**: Statistic
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StatisticSlice = prismic.SharedSlice<
+  'statistic',
+  StatisticSliceVariation
+>
+
+/**
  * Primary content in *Steps → Primary*
  */
 export interface StepsSliceDefaultPrimary {
@@ -1256,7 +1380,7 @@ export interface StepsSliceDefaultItem {
    * - **API ID Path**: steps.items[].icon
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  icon: prismic.SelectField<'phone-call' | 'car' | 'banknote'>
+  icon: prismic.SelectField<'phone' | 'truck' | 'payment'>
 
   /**
    * Step Name field in *Steps → Items*
@@ -1484,6 +1608,11 @@ declare module '@prismicio/client' {
       SubMenuDocumentDataSlices1Slice,
       SubMenuDocumentDataSlices2Slice,
       AllDocumentTypes,
+      FaqSlice,
+      FaqSliceDefaultPrimary,
+      FaqSliceDefaultItem,
+      FaqSliceVariation,
+      FaqSliceDefault,
       FeaturesSlice,
       FeaturesSliceDefaultPrimary,
       FeaturesSliceDefaultItem,
@@ -1535,6 +1664,10 @@ declare module '@prismicio/client' {
       SliderSliceDefaultItem,
       SliderSliceVariation,
       SliderSliceDefault,
+      StatisticSlice,
+      StatisticSliceDefaultPrimary,
+      StatisticSliceVariation,
+      StatisticSliceDefault,
       StepsSlice,
       StepsSliceDefaultPrimary,
       StepsSliceDefaultItem,

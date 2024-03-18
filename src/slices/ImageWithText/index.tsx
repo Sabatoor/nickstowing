@@ -26,8 +26,8 @@ const ImageWithText = ({ slice }: ImageWithTextProps): JSX.Element => {
           className={cn(
             'z-10 rounded-lg bg-primary-foreground/60 p-4 shadow-md backdrop-blur lg:col-span-2 lg:p-8',
             {
-              'order-1 -mb-8 lg:-mr-12': slice.variation === 'default',
-              'order-2 -mt-8 lg:-ml-12': slice.variation === 'leftImage',
+              'order-1 -mb-8': slice.variation === 'default',
+              'order-2 -mt-8': slice.variation === 'leftImage',
             },
           )}
         >
@@ -35,13 +35,14 @@ const ImageWithText = ({ slice }: ImageWithTextProps): JSX.Element => {
         </div>
         <div
           className={cn('flex items-center lg:col-span-3', {
-            'order-1': slice.variation === 'leftImage',
-            'order-2': slice.variation === 'default',
+            'order-1 lg:-mr-12': slice.variation === 'leftImage',
+            'order-2 lg:-ml-12': slice.variation === 'default',
           })}
         >
           <PrismicNextImage
             field={slice.primary.image}
             className="rounded-md shadow"
+            imgixParams={{ ar: '16:9', fit: 'crop' }}
           />
         </div>
       </div>

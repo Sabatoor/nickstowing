@@ -32,7 +32,7 @@ const FooterCallNow = ({ label, link }: FooterCallNowProps): JSX.Element => {
       animate={hidden ? 'hidden' : 'visible'}
       transition={{ duration: 0.4, ease: 'easeInOut' }}
       className={cn(
-        'fixed bottom-6 right-6 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary-foreground bg-primary lg:bottom-12 lg:right-12 lg:h-24 lg:w-24',
+        'fixed bottom-6 right-6 z-30 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary-foreground bg-primary lg:bottom-12 lg:right-12 lg:h-24 lg:w-24',
       )}
     >
       <PrismicNextLink field={link} className="p-5 lg:p-8">

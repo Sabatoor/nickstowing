@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic'
 
 export const components = {
+  faq: dynamic(() => import('./Faq')),
   features: dynamic(() => import('./Features')),
   footer_image: dynamic(() => import('./FooterImage')),
   footer_item: dynamic(() => import('./FooterItem')),
@@ -12,6 +13,7 @@ export const components = {
   menu_item: dynamic(() => import('./MenuItem')),
   rich_text: dynamic(() => import('./RichText')),
   slider: dynamic(() => import('./Slider')),
+  statistic: dynamic(() => import('./Statistic')),
   steps: dynamic(() => import('./Steps')),
   sub_menu_heading: dynamic(() => import('./SubMenuHeading')),
   sub_menu_item: dynamic(() => import('./SubMenuItem')),

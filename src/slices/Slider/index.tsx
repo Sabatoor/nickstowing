@@ -40,7 +40,7 @@ const Slider = ({ slice }: SliderProps): JSX.Element => {
               delay: 4000,
             }),
           ]}
-          className="w-full max-w-sm"
+          className="w-full max-w-[280px] lg:max-w-sm"
         >
           <CarouselContent>
             {slice.items.length > 0 && (

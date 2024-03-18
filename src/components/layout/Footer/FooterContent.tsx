@@ -23,7 +23,7 @@ const FooterContent = ({ data, settings }: FooterContentProps): JSX.Element => {
           {data.privacy_label}
         </PrismicNextLink>
       </div>
-      <div className="text-center">
+      <div className="text-center text-xs lg:text-sm">
         {data.copyright} <CopyrightIcon className="inline w-3 pb-1" />{' '}
         <Copyright /> {settings.site_title}
       </div>

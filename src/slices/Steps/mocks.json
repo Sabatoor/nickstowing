@@ -38,8 +38,8 @@
 						"icon",
 						{
 							"__TYPE__": "FieldContent",
-							"type": "Select",
-							"value": "phone-call"
+							"value": "phone",
+							"type": "Select"
 						}
 					],
 					[
@@ -81,8 +81,8 @@
 						"icon",
 						{
 							"__TYPE__": "FieldContent",
-							"type": "Select",
-							"value": "car"
+							"value": "phone",
+							"type": "Select"
 						}
 					],
 					[

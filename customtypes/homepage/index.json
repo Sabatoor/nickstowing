@@ -11,6 +11,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "faq": {
+              "type": "SharedSlice"
+            },
+            "statistic": {
+              "type": "SharedSlice"
+            },
             "slider": {
               "type": "SharedSlice"
             },

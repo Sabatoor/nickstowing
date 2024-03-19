@@ -53,7 +53,10 @@ const ContentList = ({
                       buttonVariants({ variant: 'outline' }),
                     )}
                   >
-                    {ctaText}
+                    {ctaText}{' '}
+                    <span className="sr-only">
+                      : Read {asText(item.data.title)}
+                    </span>
                     <ArrowRight />
                   </span>
                 </div>

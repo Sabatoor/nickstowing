@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic'
 
 export const components = {
+  content_index: dynamic(() => import('./ContentIndex')),
   faq: dynamic(() => import('./Faq')),
   features: dynamic(() => import('./Features')),
   footer_image: dynamic(() => import('./FooterImage')),

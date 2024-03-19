@@ -68,7 +68,7 @@ const Steps = ({ slice }: StepsProps): JSX.Element => {
       {slice.items.length > 0 && (
         <div
           className={cn(
-            'flex flex-col flex-wrap items-center justify-evenly lg:flex-row lg:gap-x-8',
+            'mb-4 mt-12 flex flex-col flex-wrap items-center justify-evenly gap-4 divide-y lg:mb-8 lg:mt-24 lg:flex-row lg:gap-8 lg:divide-y-0',
           )}
         >
           {slice.items.map((item, index) => {
@@ -79,9 +79,11 @@ const Steps = ({ slice }: StepsProps): JSX.Element => {
             return (
               <div
                 key={slice.id + index}
-                className="flex max-w-md shrink flex-col items-center"
+                className="flex max-w-md shrink flex-col items-center pt-6 lg:pt-0"
               >
-                {Icon && <Icon className="h-32 w-32 text-primary" />}
+                {Icon && (
+                  <Icon className="mb-4 h-24 w-24 text-primary lg:mb-8 lg:h-32 lg:w-32" />
+                )}
                 <PrismicRichText field={item.step_name} />
                 <PrismicRichText field={item.step_description} />
               </div>

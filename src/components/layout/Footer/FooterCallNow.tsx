@@ -28,6 +28,7 @@ const FooterCallNow = ({ label, link }: FooterCallNowProps): JSX.Element => {
   return (
     <motion.div
       ref={container}
+      initial={{ y: '+300%' }}
       variants={{ visible: { y: 0 }, hidden: { y: '+300%' } }}
       animate={hidden ? 'hidden' : 'visible'}
       transition={{ duration: 0.4, ease: 'easeInOut' }}

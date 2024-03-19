@@ -7,28 +7,14 @@ import { components } from '@/slices'
 import { asText } from '@prismicio/client'
 
 type Params = { uid: string }
-type SearchParams = {
-  [key: string]: string | string[] | undefined
-}
 
-export default async function Page({
-  params,
-  searchParams,
-}: {
-  params: Params
-  searchParams: SearchParams
-}) {
+export default async function Page({ params }: { params: Params }) {
   const client = createClient()
-  const page = await client.getByUID('page', params.uid).catch(() => notFound())
-  const pageNumber = { page: searchParams.page }
+  const page = await client
+    .getByUID('portfolio', params.uid)
+    .catch(() => notFound())
 
-  return (
-    <SliceZone
-      slices={page.data.slices}
-      components={components}
-      context={pageNumber}
-    />
-  )
+  return <SliceZone slices={page.data.slices} components={components} />
 }
 
 export async function generateMetadata({
@@ -37,7 +23,9 @@ export async function generateMetadata({
   params: Params
 }): Promise<Metadata> {
   const client = createClient()
-  const page = await client.getByUID('page', params.uid).catch(() => notFound())
+  const page = await client
+    .getByUID('portfolio', params.uid)
+    .catch(() => notFound())
 
   return {
     title: asText(page.data.title) || page.data.meta_title,
@@ -47,7 +35,7 @@ export async function generateMetadata({
 
 export async function generateStaticParams() {
   const client = createClient()
-  const pages = await client.getAllByType('page')
+  const pages = await client.getAllByType('portfolio')
 
   return pages.map(page => {
     return { uid: page.uid }

@@ -233,7 +233,10 @@ export type LayoutDocument<Lang extends string = string> =
     Lang
   >
 
-type PageDocumentDataSlicesSlice = ImageWithTextSlice | RichTextSlice
+type PageDocumentDataSlicesSlice =
+  | ContentIndexSlice
+  | ImageWithTextSlice
+  | RichTextSlice
 
 /**
  * Content for Page documents
@@ -305,6 +308,104 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, 'page', Lang>
 
+type PortfolioDocumentDataSlicesSlice = ImageWithTextSlice | RichTextSlice
+
+/**
+ * Content for Portfolio documents
+ */
+interface PortfolioDocumentData {
+  /**
+   * Title field in *Portfolio*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField
+
+  /**
+   * Excerpt field in *Portfolio*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.excerpt
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  excerpt: prismic.RichTextField
+
+  /**
+   * Featured Image field in *Portfolio*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.featured_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featured_image: prismic.ImageField<never>
+
+  /**
+   * Slice Zone field in *Portfolio*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PortfolioDocumentDataSlicesSlice> /**
+   * Meta Description field in *Portfolio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: portfolio.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Portfolio*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+
+  /**
+   * Meta Title field in *Portfolio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: portfolio.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * Portfolio document from Prismic
+ *
+ * - **API ID**: `portfolio`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PortfolioDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<PortfolioDocumentData>,
+    'portfolio',
+    Lang
+  >
+
 type ServiceDocumentDataSlicesSlice =
   | RichTextSlice
   | StatisticSlice
@@ -325,6 +426,28 @@ interface ServiceDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   title: prismic.RichTextField
+
+  /**
+   * Excerpt field in *Service*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.excerpt
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  excerpt: prismic.RichTextField
+
+  /**
+   * Featured Image field in *Service*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.featured_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featured_image: prismic.ImageField<never>
 
   /**
    * Slice Zone field in *Service*
@@ -518,9 +641,85 @@ export type AllDocumentTypes =
   | HomepageDocument
   | LayoutDocument
   | PageDocument
+  | PortfolioDocument
   | ServiceDocument
   | SettingsDocument
   | SubMenuDocument
+
+/**
+ * Primary content in *ContentIndex → Primary*
+ */
+export interface ContentIndexSliceDefaultPrimary {
+  /**
+   * Content Type field in *ContentIndex → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_index.primary.content_type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  content_type: prismic.SelectField<'service' | 'portfolio'>
+
+  /**
+   * Content CTA Text field in *ContentIndex → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_index.primary.content_cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content_cta_text: prismic.KeyTextField
+
+  /**
+   * Fallback Item Image field in *ContentIndex → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_index.primary.fallback_item_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  fallback_item_image: prismic.ImageField<never>
+
+  /**
+   * Number To Display field in *ContentIndex → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_index.primary.number_to_display
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  number_to_display: prismic.NumberField
+}
+
+/**
+ * Default variation for ContentIndex Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentIndexSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<ContentIndexSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *ContentIndex*
+ */
+type ContentIndexSliceVariation = ContentIndexSliceDefault
+
+/**
+ * ContentIndex Shared Slice
+ *
+ * - **API ID**: `content_index`
+ * - **Description**: ContentIndex
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentIndexSlice = prismic.SharedSlice<
+  'content_index',
+  ContentIndexSliceVariation
+>
 
 /**
  * Primary content in *Faq → Primary*
@@ -1753,6 +1952,9 @@ declare module '@prismicio/client' {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      PortfolioDocument,
+      PortfolioDocumentData,
+      PortfolioDocumentDataSlicesSlice,
       ServiceDocument,
       ServiceDocumentData,
       ServiceDocumentDataSlicesSlice,
@@ -1764,6 +1966,10 @@ declare module '@prismicio/client' {
       SubMenuDocumentDataSlices1Slice,
       SubMenuDocumentDataSlices2Slice,
       AllDocumentTypes,
+      ContentIndexSlice,
+      ContentIndexSliceDefaultPrimary,
+      ContentIndexSliceVariation,
+      ContentIndexSliceDefault,
       FaqSlice,
       FaqSliceDefaultPrimary,
       FaqSliceDefaultItem,

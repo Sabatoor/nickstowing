@@ -25,9 +25,9 @@ const Statistic = ({ slice }: StatisticProps): JSX.Element => {
           components={{
             heading2: ({ children }) => {
               return (
-                <Heading as="h2" size="7xl" className="mt-24">
+                <h2 className="mt-12 text-[5.5rem] font-bold text-primary lg:mt-24">
                   {children}
-                </Heading>
+                </h2>
               )
             },
           }}

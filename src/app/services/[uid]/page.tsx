@@ -4,7 +4,11 @@ import { SliceZone } from '@prismicio/react'
 
 import { createClient } from '@/prismicio'
 import { components } from '@/slices'
+
+import { getUrlSegments } from '@/lib/utils'
+import PageBreadcrumbs from '@/components/layout/PageBreadcrumbs'
 import { asText } from '@prismicio/client'
+import Heading from '@/components/typography/Heading'
 
 type Params = { uid: string }
 
@@ -13,8 +17,17 @@ export default async function Page({ params }: { params: Params }) {
   const page = await client
     .getByUID('service', params.uid)
     .catch(() => notFound())
+  const urlSegments = getUrlSegments(page.url)
 
-  return <SliceZone slices={page.data.slices} components={components} />
+  return (
+    <>
+      <Heading as="h1" size="6xl" className="mt-8 lg:mt-12 lg:text-center">
+        {asText(page.data.title)}
+      </Heading>
+      <PageBreadcrumbs segments={urlSegments} title={page.data.title} />
+      <SliceZone slices={page.data.slices} components={components} />
+    </>
+  )
 }
 
 export async function generateMetadata({

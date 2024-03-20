@@ -1,11 +1,9 @@
 import ContentList from '@/components/ContentList'
-import Heading from '@/components/typography/Heading'
 import Section from '@/components/layout/Section'
+import Pagination from '@/components/Pagination'
 import { createClient } from '@/prismicio'
 import { Content, isFilled } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
-import { PrismicRichText } from '@/components/typography/PrismicRichText'
-import Pagination from '@/components/Pagination'
 // import Pagination from '@/components/Pagination'
 
 /**
@@ -29,8 +27,8 @@ const ContentIndex = async ({
   if (slice.primary.content_type === 'service') {
     content = await client.getByType('service', {
       orderings: {
-        field: 'document.first_publication_date',
-        direction: 'desc',
+        field: 'my.service.title',
+        direction: 'asc',
       },
       page: page || 1,
       pageSize: slice.primary.number_to_display || 5,

@@ -82,26 +82,36 @@ const MobileMenu = ({
                   return (
                     <li key={slice.id}>
                       <Accordion type="single" collapsible>
-                        <AccordionItem value={`${slice.primary.label}`}>
-                          <AccordionTrigger className="flex justify-center text-primary">
+                        <AccordionItem
+                          value={`${slice.primary.label}`}
+                          className="border-none"
+                        >
+                          <AccordionTrigger
+                            className={cn(
+                              'flex justify-center rounded-lg border text-primary [&[data-state=open]]:mb-4',
+                              buttonVariants({ variant: 'link' }),
+                            )}
+                          >
                             {slice.primary.label}
                           </AccordionTrigger>
                           {allSlices.length > 0 &&
-                            allSlices.map(subSlice => {
+                            allSlices.map((subSlice, index) => {
                               if (subSlice.slice_type === 'sub_menu_item') {
                                 return (
                                   <AccordionContent key={subSlice.id}>
-                                    <PrismicNextLink
-                                      field={subSlice.primary.link}
-                                      className={cn(
-                                        'w-full',
-                                        buttonVariants({
-                                          variant: 'outline',
-                                        }),
-                                      )}
-                                    >
-                                      {subSlice.primary.label}
-                                    </PrismicNextLink>
+                                    <SheetClose asChild>
+                                      <PrismicNextLink
+                                        field={subSlice.primary.link}
+                                        className={cn(
+                                          'w-full',
+                                          buttonVariants({
+                                            variant: 'outline',
+                                          }),
+                                        )}
+                                      >
+                                        {subSlice.primary.label}
+                                      </PrismicNextLink>
+                                    </SheetClose>
                                   </AccordionContent>
                                 )
                               }

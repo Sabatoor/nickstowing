@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils'
 import { Content } from '@prismicio/client'
 import { PrismicNextImage } from '@prismicio/next'
 import { SliceComponentProps } from '@prismicio/react'
+import { Suspense } from 'react'
 
 /**
  * Props for `ImageWithText`.

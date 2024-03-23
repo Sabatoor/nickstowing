@@ -16,8 +16,8 @@ type PageBreadcrumbsProps = {
 const PageBreadcrumbs = ({ segments, title }: PageBreadcrumbsProps) => {
   return (
     <div className="mx-auto mt-8 max-w-screen-lg px-4 lg:mt-12 lg:w-full">
-      <Breadcrumb>
-        <BreadcrumbList>
+      <Breadcrumb className="my-3">
+        <BreadcrumbList className="gap-3 sm:gap-4">
           <BreadcrumbItem>
             <BreadcrumbLink href="/">Home</BreadcrumbLink>
           </BreadcrumbItem>
@@ -27,11 +27,8 @@ const PageBreadcrumbs = ({ segments, title }: PageBreadcrumbsProps) => {
               if (index < segments.length - 1) {
                 return (
                   <React.Fragment key={segment + index}>
-                    <BreadcrumbItem>
-                      <BreadcrumbLink
-                        href={`/${segment}`}
-                        className="capitalize"
-                      >
+                    <BreadcrumbItem className="capitalize">
+                      <BreadcrumbLink href={`/${segment}`}>
                         {segment}
                       </BreadcrumbLink>
                     </BreadcrumbItem>

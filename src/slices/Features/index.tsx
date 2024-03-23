@@ -21,7 +21,7 @@ const Features = ({ slice }: FeaturesProps): JSX.Element => {
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      width="2xl"
+      width="xl"
       className={cn('py-8 lg:pb-24', {
         'bg-secondary': slice.variation === 'secondary',
       })}
@@ -37,7 +37,7 @@ const Features = ({ slice }: FeaturesProps): JSX.Element => {
         }}
       />
       {slice.variation !== 'single' && (
-        <div className="flex flex-wrap justify-evenly gap-6 lg:gap-12">
+        <div className="flex flex-wrap justify-evenly gap-2 lg:gap-4">
           {slice.items.length > 0 &&
             slice.items.map((item, index) => {
               return (

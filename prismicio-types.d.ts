@@ -440,6 +440,7 @@ export type PortfolioDocument<Lang extends string = string> =
   >
 
 type ServiceDocumentDataSlicesSlice =
+  | FeaturesSlice
   | GallerySlice
   | RichTextSlice
   | StatisticSlice

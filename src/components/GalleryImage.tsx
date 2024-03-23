@@ -26,7 +26,7 @@ export default function GalleryImage({
         <PrismicNextImage
           field={image}
           fill
-          className="object-cover transition-opacity duration-300 ease-out group-hover:opacity-75"
+          className="cursor-pointer object-cover transition-opacity duration-300 ease-out group-hover:opacity-75"
           imgixParams={{ ar: '1:1', fit: 'crop' }}
           sizes="(min-width: 1420px) 314px, (min-width: 1040px) calc(20vw + 34px), (min-width: 800px) calc(33.64vw - 24px), (min-width: 520px) 46.92vw, calc(100vw - 32px)"
           placeholder="blur"

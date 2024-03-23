@@ -11,11 +11,23 @@ import { asText } from '@prismicio/client'
 import Heading from '@/components/typography/Heading'
 
 type Params = { uid: string }
+type SearchParams = {
+  [key: string]: string | string[] | undefined
+}
 
-export default async function Page({ params }: { params: Params }) {
+export default async function Page({
+  params,
+  searchParams,
+}: {
+  params: Params
+  searchParams: SearchParams
+}) {
+  const pageNumber = { page: searchParams.page }
   const client = createClient()
   const page = await client
-    .getByUID('service', params.uid)
+    .getByUID('service', params.uid, {
+      fetchLinks: ['gallery_item.image'],
+    })
     .catch(() => notFound())
   const urlSegments = getUrlSegments(page.url)
 
@@ -25,7 +37,11 @@ export default async function Page({ params }: { params: Params }) {
         {asText(page.data.title)}
       </Heading>
       <PageBreadcrumbs segments={urlSegments} title={page.data.title} />
-      <SliceZone slices={page.data.slices} components={components} />
+      <SliceZone
+        slices={page.data.slices}
+        components={components}
+        context={pageNumber}
+      />
     </>
   )
 }

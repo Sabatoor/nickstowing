@@ -81,7 +81,7 @@ const config = {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
       gridTemplateColumns: {
-        gallery: 'repeat(auto-fit, minmax(240px, 1fr))',
+        gallery: 'repeat(auto-fit, minmax(250px, 1fr))',
       },
     },
   },

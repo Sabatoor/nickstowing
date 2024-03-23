@@ -1282,9 +1282,103 @@ export type GallerySliceDefault = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *Gallery → Primary*
+ */
+export interface GallerySliceManualPrimary {
+  /**
+   * Heading field in *Gallery → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Gallery Heading
+   * - **API ID Path**: gallery.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Description field in *Gallery → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Primary content in *Gallery → Items*
+ */
+export interface GallerySliceManualItem {
+  /**
+   * Image field in *Gallery → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  image: prismic.ContentRelationshipField<'gallery_item'>
+}
+
+/**
+ * Manual variation for Gallery Slice
+ *
+ * - **API ID**: `manual`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GallerySliceManual = prismic.SharedSliceVariation<
+  'manual',
+  Simplify<GallerySliceManualPrimary>,
+  Simplify<GallerySliceManualItem>
+>
+
+/**
+ * Primary content in *Gallery → Primary*
+ */
+export interface GallerySlicePaginatedPrimary {
+  /**
+   * Heading field in *Gallery → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Gallery Heading
+   * - **API ID Path**: gallery.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Description field in *Gallery → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Paginated variation for Gallery Slice
+ *
+ * - **API ID**: `paginated`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GallerySlicePaginated = prismic.SharedSliceVariation<
+  'paginated',
+  Simplify<GallerySlicePaginatedPrimary>,
+  never
+>
+
+/**
  * Slice variation for *Gallery*
  */
-type GallerySliceVariation = GallerySliceDefault
+type GallerySliceVariation =
+  | GallerySliceDefault
+  | GallerySliceManual
+  | GallerySlicePaginated
 
 /**
  * Gallery Shared Slice
@@ -2101,8 +2195,13 @@ declare module '@prismicio/client' {
       FooterListSliceDefault,
       GallerySlice,
       GallerySliceDefaultPrimary,
+      GallerySliceManualPrimary,
+      GallerySliceManualItem,
+      GallerySlicePaginatedPrimary,
       GallerySliceVariation,
       GallerySliceDefault,
+      GallerySliceManual,
+      GallerySlicePaginated,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

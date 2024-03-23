@@ -25,7 +25,9 @@
           "type": "StructuredText",
           "config": {
             "label": "Description",
-            "labels": ["button"],
+            "labels": [
+              "button"
+            ],
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "paragraph,preformatted,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item"
@@ -36,8 +38,87 @@
           "config": {
             "label": "Tag",
             "placeholder": "Which photos should be shown?",
-            "options": ["Car", "Truck", "Van"],
+            "options": [
+              "Car",
+              "Truck",
+              "Van"
+            ],
             "default_value": "Car"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "manual",
+      "name": "Manual",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "Gallery Heading",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "labels": [
+              "button"
+            ],
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item"
+          }
+        }
+      },
+      "items": {
+        "image": {
+          "type": "Link",
+          "config": {
+            "label": "Image",
+            "select": "document",
+            "customtypes": [
+              "gallery_item"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "paginated",
+      "name": "Paginated",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "Gallery Heading",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "labels": [
+              "button"
+            ],
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item"
           }
         }
       },

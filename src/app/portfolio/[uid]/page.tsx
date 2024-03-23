@@ -10,12 +10,24 @@ import { getUrlSegments } from '@/lib/utils'
 import PageBreadcrumbs from '@/components/layout/PageBreadcrumbs'
 
 type Params = { uid: string }
+type SearchParams = {
+  [key: string]: string | string[] | undefined
+}
 
-export default async function Page({ params }: { params: Params }) {
+export default async function Page({
+  params,
+  searchParams,
+}: {
+  params: Params
+  searchParams: SearchParams
+}) {
   const client = createClient()
   const page = await client
-    .getByUID('portfolio', params.uid)
+    .getByUID('portfolio', params.uid, {
+      fetchLinks: ['gallery_item.image'],
+    })
     .catch(() => notFound())
+  const pageNumber = { page: searchParams.page }
   const urlSegments = getUrlSegments(page.url)
 
   return (
@@ -24,7 +36,11 @@ export default async function Page({ params }: { params: Params }) {
         {asText(page.data.title)}
       </Heading>
       <PageBreadcrumbs segments={urlSegments} title={page.data.title} />
-      <SliceZone slices={page.data.slices} components={components} />
+      <SliceZone
+        slices={page.data.slices}
+        components={components}
+        context={pageNumber}
+      />
     </>
   )
 }

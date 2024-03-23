@@ -71,7 +71,7 @@ const defaultComponents: JSXMapSerializer = {
     return (
       <p
         className={cn(
-          'prose mx-auto my-6 text-foreground lg:prose-lg xl:prose-xl lg:my-10',
+          'prose mx-auto my-3 text-foreground lg:prose-lg xl:prose-xl lg:my-6',
           {
             grid: labels.length > 0 && labels[0].data.label === 'button',
           },

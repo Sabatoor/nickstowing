@@ -22,7 +22,11 @@ export default async function Page({
   searchParams: SearchParams
 }) {
   const client = createClient()
-  const page = await client.getByUID('page', params.uid).catch(() => notFound())
+  const page = await client
+    .getByUID('page', params.uid, {
+      fetchLinks: ['gallery_item.image'],
+    })
+    .catch(() => notFound())
   const pageNumber = { page: searchParams.page }
   const urlSegments = getUrlSegments(page.url)
 

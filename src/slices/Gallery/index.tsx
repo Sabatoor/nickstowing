@@ -97,9 +97,14 @@ const Gallery = async ({
       item => item.image,
     ) as unknown as GalleryItemDocument[]
 
-    const PrismicImages = gallery_items.map(
-      item => item.data.image,
-    ) as prismic.FilledImageFieldImage[]
+    const PrismicImages = [] as prismic.FilledImageFieldImage[]
+
+    gallery_items.forEach(item => {
+      if (item.data !== undefined && prismic.isFilled.image(item.data.image)) {
+        PrismicImages.push(item.data.image)
+      }
+    })
+
     const photosWithBlur = await addBlurredDataUrls(PrismicImages)
     return (
       <Section
@@ -126,7 +131,7 @@ const Gallery = async ({
             <PrismicRichText field={slice.primary.description} />
           </div>
         )}
-        {slice.items.length > 0 && (
+        {photosWithBlur.length > 0 && (
           <ul className="grid grid-cols-gallery gap-2">
             {photosWithBlur.map((photo, index) => {
               return (

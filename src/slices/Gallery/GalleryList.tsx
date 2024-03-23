@@ -43,6 +43,7 @@ const GalleryList = async ({
                   <GalleryImage
                     image={photo}
                     blurDataURL={photosWithBlur[index].blurredDataUrl || ''}
+                    index={index}
                   />
                 </li>
               )
@@ -72,7 +73,6 @@ const GalleryList = async ({
       photo => photo.data.image,
     ) as prismic.FilledImageFieldImage[]
     const photosWithBlur = await addBlurredDataUrls(PrismicImages)
-    console.log('DEFAULT VARIATION CALLED')
     return (
       <>
         {photosWithBlur.length > 0 && (
@@ -86,6 +86,7 @@ const GalleryList = async ({
                   <GalleryImage
                     image={photo}
                     blurDataURL={photosWithBlur[index].blurredDataUrl || ''}
+                    index={index}
                   />
                 </li>
               )

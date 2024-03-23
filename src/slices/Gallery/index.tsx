@@ -29,7 +29,6 @@ const Gallery = async ({
   context,
 }: GalleryProps): Promise<JSX.Element> => {
   const { page } = context as contextProps
-  const client = createClient()
   if (slice.variation === 'paginated') {
     return (
       <Section
@@ -121,6 +120,7 @@ const Gallery = async ({
                   <GalleryImage
                     image={photo}
                     blurDataURL={photosWithBlur[index].blurredDataUrl || ''}
+                    index={index}
                   />
                 </li>
               )

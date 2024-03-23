@@ -1,0 +1,78 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Gallery Slice",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"tag": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "Car"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Rich Text Gallery Description",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 29
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aliqua reprehenderit occaecat irure reprehenderit.",
+							"spans": [
+								{
+									"type": "hyperlink",
+									"start": 7,
+									"end": 20,
+									"data": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io",
+										"target": "_self"
+									}
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Button",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

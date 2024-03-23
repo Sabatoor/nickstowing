@@ -9,6 +9,7 @@ export const components = {
   footer_image: dynamic(() => import('./FooterImage')),
   footer_item: dynamic(() => import('./FooterItem')),
   footer_list: dynamic(() => import('./FooterList')),
+  gallery: dynamic(() => import('./Gallery')),
   hero: dynamic(() => import('./Hero')),
   image_with_text: dynamic(() => import('./ImageWithText')),
   menu_item: dynamic(() => import('./MenuItem')),

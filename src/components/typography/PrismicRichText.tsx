@@ -7,6 +7,19 @@ import * as prismic from '@prismicio/client'
 import Heading from '@/components/typography/Heading'
 import Image from 'next/image'
 import React from 'react'
+import Link from 'next/link'
+import { PrismicNextLink } from '@prismicio/next'
+import { cn } from '@/lib/utils'
+import { buttonVariants } from '../ui/button'
+
+type RichTextSpanProps = {
+  start: number
+  end: number
+  type: string
+  data: {
+    label: string
+  }
+}
 
 const defaultComponents: JSXMapSerializer = {
   heading1: ({ children }) => {
@@ -51,9 +64,19 @@ const defaultComponents: JSXMapSerializer = {
       </Heading>
     )
   },
-  paragraph: ({ children }) => {
+  paragraph: ({ children, node }) => {
+    const labels = node.spans.filter(
+      span => span.type === 'label',
+    ) as unknown as RichTextSpanProps[]
     return (
-      <p className="prose mx-auto my-6 text-foreground lg:prose-lg xl:prose-xl lg:my-10">
+      <p
+        className={cn(
+          'prose mx-auto my-6 text-foreground lg:prose-lg xl:prose-xl lg:my-10',
+          {
+            grid: labels.length > 0 && labels[0].data.label === 'button',
+          },
+        )}
+      >
         {children}
       </p>
     )
@@ -91,6 +114,21 @@ const defaultComponents: JSXMapSerializer = {
   },
   listItem: ({ children }) => {
     return <li className="ml-4 md:ml-6 lg:ml-8 xl:ml-10">{children}</li>
+  },
+  hyperlink: ({ node, children }) => {
+    return (
+      <PrismicNextLink
+        field={node.data}
+        className={cn(
+          {
+            'no-underline': children[0].props.className === 'button',
+          },
+          children[0].props.className === 'button' && buttonVariants(),
+        )}
+      >
+        {children}
+      </PrismicNextLink>
+    )
   },
 }
 

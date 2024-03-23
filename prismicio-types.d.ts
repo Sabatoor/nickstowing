@@ -60,6 +60,38 @@ export type FooterLayoutDocument<Lang extends string = string> =
     Lang
   >
 
+/**
+ * Content for Gallery Item documents
+ */
+interface GalleryItemDocumentData {
+  /**
+   * Image field in *Gallery Item*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_item.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+}
+
+/**
+ * Gallery Item document from Prismic
+ *
+ * - **API ID**: `gallery_item`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type GalleryItemDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<GalleryItemDocumentData>,
+    'gallery_item',
+    Lang
+  >
+
 type HomepageDocumentDataSlicesSlice =
   | FaqSlice
   | StatisticSlice
@@ -234,6 +266,7 @@ export type LayoutDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | GallerySlice
   | ContentIndexSlice
   | ImageWithTextSlice
   | RichTextSlice
@@ -407,6 +440,7 @@ export type PortfolioDocument<Lang extends string = string> =
   >
 
 type ServiceDocumentDataSlicesSlice =
+  | GallerySlice
   | RichTextSlice
   | StatisticSlice
   | ImageWithTextSlice
@@ -638,6 +672,7 @@ export type SubMenuDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | FooterLayoutDocument
+  | GalleryItemDocument
   | HomepageDocument
   | LayoutDocument
   | PageDocument
@@ -1196,6 +1231,69 @@ export type FooterListSlice = prismic.SharedSlice<
   'footer_list',
   FooterListSliceVariation
 >
+
+/**
+ * Primary content in *Gallery → Primary*
+ */
+export interface GallerySliceDefaultPrimary {
+  /**
+   * Heading field in *Gallery → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Gallery Heading
+   * - **API ID Path**: gallery.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Description field in *Gallery → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Tag field in *Gallery → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Which photos should be shown?
+   * - **Default Value**: Car
+   * - **API ID Path**: gallery.primary.tag
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  tag: prismic.SelectField<'Car' | 'Truck' | 'Van', 'filled'>
+}
+
+/**
+ * Default variation for Gallery Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GallerySliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<GallerySliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *Gallery*
+ */
+type GallerySliceVariation = GallerySliceDefault
+
+/**
+ * Gallery Shared Slice
+ *
+ * - **API ID**: `gallery`
+ * - **Description**: Gallery
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GallerySlice = prismic.SharedSlice<'gallery', GallerySliceVariation>
 
 /**
  * Primary content in *Hero → Primary*
@@ -1942,6 +2040,8 @@ declare module '@prismicio/client' {
       FooterLayoutDocumentDataSlicesSlice,
       FooterLayoutDocumentDataSlices1Slice,
       FooterLayoutDocumentDataSlices2Slice,
+      GalleryItemDocument,
+      GalleryItemDocumentData,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
@@ -1999,6 +2099,10 @@ declare module '@prismicio/client' {
       FooterListSliceDefaultItem,
       FooterListSliceVariation,
       FooterListSliceDefault,
+      GallerySlice,
+      GallerySliceDefaultPrimary,
+      GallerySliceVariation,
+      GallerySliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

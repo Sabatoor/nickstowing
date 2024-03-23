@@ -15,7 +15,7 @@ type PageBreadcrumbsProps = {
 
 const PageBreadcrumbs = ({ segments, title }: PageBreadcrumbsProps) => {
   return (
-    <div className="mx-auto mt-8 max-w-screen-xl px-4 lg:mt-12 lg:w-full">
+    <div className="mx-auto mt-8 max-w-screen-lg px-4 lg:mt-12 lg:w-full">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>

@@ -1,10 +1,9 @@
 import ContentList from '@/components/ContentList'
 import Section from '@/components/layout/Section'
-import Pagination from '@/components/Pagination'
-import { createClient } from '@/prismicio'
 import { Content, isFilled } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
-// import Pagination from '@/components/Pagination'
+import { LoaderCircle } from 'lucide-react'
+import { Suspense } from 'react'
 
 /**
  * Props for `ContentIndex`.
@@ -22,52 +21,36 @@ const ContentIndex = async ({
   context,
 }: ContentIndexProps): Promise<JSX.Element> => {
   const { page } = context as contextProps
-  const client = createClient()
-  let content
-  if (slice.primary.content_type === 'service') {
-    content = await client.getByType('service', {
-      orderings: {
-        field: 'my.service.title',
-        direction: 'asc',
-      },
-      page: page || 1,
-      pageSize: slice.primary.number_to_display || 5,
-    })
-  } else if (slice.primary.content_type === 'portfolio')
-    content = await client.getByType('portfolio', {
-      orderings: {
-        field: 'document.first_publication_date',
-        direction: 'desc',
-      },
-      page: page || 1,
-      pageSize: slice.primary.number_to_display || 5,
-    })
+
   return (
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       width="lg"
     >
-      {content && (
-        <>
-          <ContentList
-            content={content.results}
-            ctaText={
-              isFilled.keyText(slice.primary.content_cta_text)
-                ? slice.primary.content_cta_text
-                : 'Read More'
-            }
-            fallbackItemImage={slice.primary.fallback_item_image}
-          />
-          {content?.total_pages > 1 && (
-            <Pagination
-              hasNextPage={content?.next_page !== null}
-              hasPrevPage={content?.prev_page !== null}
-              totalPages={content?.total_pages}
+      <Suspense
+        fallback={
+          <div className="grid min-h-[calc(100vh-140px)] place-content-center">
+            <LoaderCircle
+              className="animate-spin text-primary"
+              height={120}
+              width={120}
             />
-          )}
-        </>
-      )}
+          </div>
+        }
+      >
+        <ContentList
+          contentType={slice.primary.content_type}
+          display={slice.primary.number_to_display || undefined}
+          page={page || undefined}
+          ctaText={
+            isFilled.keyText(slice.primary.content_cta_text)
+              ? slice.primary.content_cta_text
+              : 'Read More'
+          }
+          fallbackItemImage={slice.primary.fallback_item_image}
+        />
+      </Suspense>
     </Section>
   )
 }

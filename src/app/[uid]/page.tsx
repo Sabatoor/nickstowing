@@ -32,7 +32,11 @@ export default async function Page({
 
   return (
     <>
-      <Heading as="h1" size="6xl" className="mt-8 lg:mt-12 lg:text-center">
+      <Heading
+        as="h1"
+        size="6xl"
+        className="mx-auto mt-8 max-w-screen-lg px-2 md:px-6 lg:mt-12 lg:text-center"
+      >
         {asText(page.data.title)}
       </Heading>
       <PageBreadcrumbs segments={urlSegments} title={page.data.title} />

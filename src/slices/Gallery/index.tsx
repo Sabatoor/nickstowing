@@ -1,15 +1,16 @@
+import GalleryImage from '@/components/GalleryImage'
+import Section from '@/components/layout/Section'
+import addBlurredDataUrls from '@/lib/getBase64'
+import Heading from '@/components/typography/Heading'
+import { PrismicRichText } from '@/components/typography/PrismicRichText'
 import { createClient } from '@/prismicio'
+import * as prismic from '@prismicio/client'
 import { Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
-import * as prismic from '@prismicio/client'
-import Section from '@/components/layout/Section'
-import { PrismicNextImage } from '@prismicio/next'
-import { PrismicRichText } from '@/components/typography/PrismicRichText'
-import Heading from '@/components/typography/Heading'
-import addBlurredDataUrls from '@/lib/getBase64'
-import GalleryImage from '@/components/GalleryImage'
 import { GalleryItemDocument } from '../../../prismicio-types'
-import Pagination from '@/components/Pagination'
+import { Suspense } from 'react'
+import GalleryList from './GalleryList'
+import { LoaderCircle } from 'lucide-react'
 
 /**
  * Props for `Gallery`.
@@ -30,19 +31,6 @@ const Gallery = async ({
   const { page } = context as contextProps
   const client = createClient()
   if (slice.variation === 'paginated') {
-    const gallery_items = await client.getByType('gallery_item', {
-      page: page || 1,
-      pageSize: 24,
-      orderings: {
-        field: 'document.first_publication_date',
-        direction: 'desc',
-      },
-    })
-    const PrismicImages = gallery_items.results.map(
-      item => item.data.image,
-    ) as prismic.FilledImageFieldImage[]
-    const photosWithBlur = await addBlurredDataUrls(PrismicImages)
-
     return (
       <Section
         data-slice-type={slice.slice_type}
@@ -68,28 +56,19 @@ const Gallery = async ({
             <PrismicRichText field={slice.primary.description} />
           </div>
         )}
-        {photosWithBlur.length > 0 && (
-          <ul className="grid grid-cols-gallery gap-2">
-            {photosWithBlur.map((photo, index) => {
-              return (
-                <li
-                  key={photo.id}
-                  className="group relative h-64 overflow-hidden rounded-lg bg-secondary"
-                >
-                  <GalleryImage
-                    image={photo}
-                    blurDataURL={photosWithBlur[index].blurredDataUrl || ''}
-                  />
-                </li>
-              )
-            })}
-          </ul>
-        )}
-        <Pagination
-          hasNextPage={gallery_items?.next_page !== null}
-          hasPrevPage={gallery_items?.prev_page !== null}
-          totalPages={gallery_items?.total_pages}
-        />
+        <Suspense
+          fallback={
+            <div className="grid min-h-[calc(100vh-140px)] place-content-center">
+              <LoaderCircle
+                className="animate-spin text-primary"
+                height={120}
+                width={120}
+              />
+            </div>
+          }
+        >
+          <GalleryList page={page} type="paginated" />
+        </Suspense>
       </Section>
     )
   } else if (slice.variation === 'manual') {
@@ -151,22 +130,6 @@ const Gallery = async ({
       </Section>
     )
   } else {
-    const photos = await client.getByType('gallery_item', {
-      page: 1,
-      pageSize: 24,
-      orderings: {
-        field: 'document.first_publication_date',
-        direction: 'desc',
-      },
-      filters: [
-        prismic.filter.any('document.tags', [slice.primary.tag || 'Car']),
-      ],
-    })
-    const PrismicImages = photos.results.map(
-      photo => photo.data.image,
-    ) as prismic.FilledImageFieldImage[]
-    const photosWithBlur = await addBlurredDataUrls(PrismicImages)
-
     return (
       <Section
         data-slice-type={slice.slice_type}
@@ -192,23 +155,19 @@ const Gallery = async ({
             <PrismicRichText field={slice.primary.description} />
           </div>
         )}
-        {photosWithBlur.length > 0 && (
-          <ul className="grid grid-cols-gallery gap-2">
-            {photosWithBlur.map((photo, index) => {
-              return (
-                <li
-                  key={photo.id}
-                  className="group relative h-64 overflow-hidden rounded-lg bg-secondary"
-                >
-                  <GalleryImage
-                    image={photo}
-                    blurDataURL={photosWithBlur[index].blurredDataUrl || ''}
-                  />
-                </li>
-              )
-            })}
-          </ul>
-        )}
+        <Suspense
+          fallback={
+            <div className="grid min-h-[calc(100vh-140px)] place-content-center">
+              <LoaderCircle
+                className="animate-spin text-primary"
+                height={120}
+                width={120}
+              />
+            </div>
+          }
+        >
+          <GalleryList page={page} tag={slice.primary.tag} type="default" />
+        </Suspense>
       </Section>
     )
   }

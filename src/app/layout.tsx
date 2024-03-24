@@ -4,6 +4,9 @@ import { createClient } from '@/prismicio'
 import { cn } from '@/lib/utils'
 import Header from '@/components/layout/Header/Header'
 import Footer from '@/components/layout/Footer/Footer'
+import { Suspense } from 'react'
+import Analytics from '@/components/Analytics'
+import Consent from '@/components/Consent'
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient()
@@ -31,9 +34,13 @@ export default function RootLayout({
           'flex min-h-screen flex-col justify-between bg-background font-sans antialiased',
         )}
       >
+        <Suspense>
+          <Analytics />
+        </Suspense>
         <Header />
         {children}
         <Footer />
+        <Consent />
       </body>
     </html>
   )

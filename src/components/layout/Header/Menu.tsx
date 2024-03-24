@@ -32,8 +32,10 @@ const Menu = ({ data, className }: MenuProps): JSX.Element => {
             if (slice.variation === 'withSubMenu') {
               const slicePrimary =
                 slice.primary as MenuItemSliceWithSubMenuPrimary
+              // isolate the sub_menu document from primary
               const sub_menu =
                 slicePrimary.sub_menu as unknown as SubMenuDocument
+              // look at the submenu and determine columns needed
               const cols =
                 (sub_menu.data?.slices.length > 0 ? 1 : 0) +
                 (sub_menu.data?.slices1.length > 0 ? 1 : 0) +
@@ -77,7 +79,6 @@ const Menu = ({ data, className }: MenuProps): JSX.Element => {
                         </div>
                       )}
                     </div>
-                    {/* <NavigationMenuLink>Link 1</NavigationMenuLink> */}
                   </NavigationMenuContent>
                 </NavigationMenuItem>
               )

@@ -16,19 +16,18 @@ export type ImageWithTextProps = SliceComponentProps<Content.ImageWithTextSlice>
  */
 const ImageWithText = ({ slice }: ImageWithTextProps): JSX.Element => {
   return (
-    <Section
+    <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      width="2xl"
-      className="py-6 lg:pb-24 lg:pt-12"
+      className="mx-auto max-w-screen-xl py-6 lg:pb-24 lg:pt-12"
     >
-      <div className={cn('grid lg:grid-cols-5')}>
+      <div className={cn('grid p-4 lg:grid-cols-5 lg:p-8')}>
         <div
           className={cn(
-            'z-10 rounded-lg bg-primary-foreground/80 p-4 shadow-md backdrop-blur lg:col-span-2 lg:p-8',
+            'rounded-lg bg-primary-foreground/80 p-4 shadow-md backdrop-blur lg:col-span-2 lg:p-8',
             {
-              'order-1 -mb-4': slice.variation === 'default',
-              'order-2 -mt-4': slice.variation === 'leftImage',
+              'order-1 -mb-4 -ml-8': slice.variation === 'default',
+              'order-2 -mr-8 -mt-4': slice.variation === 'leftImage',
             },
           )}
         >
@@ -36,8 +35,8 @@ const ImageWithText = ({ slice }: ImageWithTextProps): JSX.Element => {
         </div>
         <div
           className={cn('flex items-center lg:col-span-3', {
-            'order-1 lg:-mr-16': slice.variation === 'leftImage',
-            'order-2 lg:-ml-16': slice.variation === 'default',
+            'order-1 lg:-mr-8': slice.variation === 'leftImage',
+            'order-2 lg:-ml-8': slice.variation === 'default',
           })}
         >
           <PrismicNextImage
@@ -47,7 +46,7 @@ const ImageWithText = ({ slice }: ImageWithTextProps): JSX.Element => {
           />
         </div>
       </div>
-    </Section>
+    </section>
   )
 }
 

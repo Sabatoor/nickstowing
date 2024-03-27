@@ -11,6 +11,7 @@ import CallNow from './CallNow'
 import PhoneTitle from './PhoneTitle'
 import Menu from './Menu'
 import MobileMenu from './MobileMenu'
+import Image from 'next/image'
 
 type NavbarProps = {
   data: LayoutDocumentData

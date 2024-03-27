@@ -1,6 +1,6 @@
 'use client'
 import Section from '@/components/layout/Section'
-import { Content } from '@prismicio/client'
+import { Content, isFilled } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 import {
   Carousel,
@@ -51,20 +51,28 @@ const Slider = ({ slice }: SliderProps): JSX.Element => {
                       <div className="p-1">
                         <Card>
                           <CardContent className="aspect-square flex flex-col items-center justify-center p-6">
-                            <MapPin
-                              size={60}
-                              className="text-primary"
-                              fill="lightgray"
-                            />
-                            <span className="text-3xl font-semibold">
-                              {item.town}
-                            </span>
-                            <p className="py-4 text-5xl font-bold text-primary lg:py-8">
-                              {item.value}
-                            </p>
-                            <p className="py-4 text-2xl font-medium lg:py-8">
-                              {item.make_and_model}
-                            </p>
+                            {isFilled.keyText(item.town) && (
+                              <>
+                                <MapPin
+                                  size={60}
+                                  className="text-primary"
+                                  fill="lightgray"
+                                />
+                                <span className="text-3xl font-extrabold">
+                                  {item.town}
+                                </span>
+                              </>
+                            )}
+                            {isFilled.keyText(item.value) && (
+                              <p className="py-4 text-5xl font-bold text-primary lg:py-8">
+                                {item.value}
+                              </p>
+                            )}
+                            {isFilled.keyText(item.make_and_model) && (
+                              <p className="py-4 text-2xl font-medium lg:py-8">
+                                {item.make_and_model}
+                              </p>
+                            )}
                           </CardContent>
                         </Card>
                       </div>

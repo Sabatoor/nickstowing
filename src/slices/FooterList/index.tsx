@@ -1,3 +1,5 @@
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import { Content, isFilled } from '@prismicio/client'
 import { PrismicNextLink } from '@prismicio/next'
 import { SliceComponentProps } from '@prismicio/react'
@@ -22,11 +24,24 @@ const FooterList = ({ slice }: FooterListProps): JSX.Element => {
             return (
               <li key={slice.id + `-${index}`}>
                 {isFilled.link(item.link) ? (
-                  <PrismicNextLink field={item.link}>
+                  <PrismicNextLink
+                    field={item.link}
+                    className={cn(
+                      buttonVariants({ variant: 'link' }),
+                      'text-primary-foreground',
+                    )}
+                  >
                     {item.label || 'Missing Label Field'}
                   </PrismicNextLink>
                 ) : (
-                  <>{item.label || 'Missing Label Field'}</>
+                  <span
+                    className={cn(
+                      buttonVariants({ variant: 'link' }),
+                      'text-primary-foreground hover:no-underline',
+                    )}
+                  >
+                    {item.label || 'Missing Label Field'}
+                  </span>
                 )}
               </li>
             )

@@ -265,6 +265,97 @@ export type LayoutDocument<Lang extends string = string> =
     Lang
   >
 
+type LocationDocumentDataSlicesSlice =
+  | FaqSlice
+  | ImageWithTextSlice
+  | FeaturesSlice
+  | RichTextSlice
+
+/**
+ * Content for Location documents
+ */
+interface LocationDocumentData {
+  /**
+   * Title field in *Location*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: location.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField
+
+  /**
+   * Featured Image field in *Location*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: location.featured_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featured_image: prismic.ImageField<never>
+
+  /**
+   * Slice Zone field in *Location*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: location.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<LocationDocumentDataSlicesSlice> /**
+   * Meta Description field in *Location*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: location.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Location*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: location.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+
+  /**
+   * Meta Title field in *Location*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: location.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * Location document from Prismic
+ *
+ * - **API ID**: `location`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type LocationDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<LocationDocumentData>,
+    'location',
+    Lang
+  >
+
 type PageDocumentDataSlicesSlice =
   | GallerySlice
   | ContentIndexSlice
@@ -676,6 +767,7 @@ export type AllDocumentTypes =
   | GalleryItemDocument
   | HomepageDocument
   | LayoutDocument
+  | LocationDocument
   | PageDocument
   | PortfolioDocument
   | ServiceDocument
@@ -2144,6 +2236,9 @@ declare module '@prismicio/client' {
       LayoutDocumentData,
       LayoutDocumentDataSlicesSlice,
       LayoutDocumentDataSlices1Slice,
+      LocationDocument,
+      LocationDocumentData,
+      LocationDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,

@@ -30,14 +30,14 @@ const Features = ({ slice }: FeaturesProps): JSX.Element => {
         field={slice.primary.heading}
         components={{
           heading2: ({ children }) => (
-            <Heading as="h2" size="4xl" className="py-4 lg:py-8 lg:text-center">
+            <Heading as="h2" size="5xl" className="py-4 lg:py-8 lg:text-center">
               {children}
             </Heading>
           ),
         }}
       />
       {slice.variation !== 'single' && (
-        <div className="flex flex-wrap justify-evenly gap-2 lg:gap-4">
+        <div className="mt-8 flex flex-wrap justify-evenly gap-4 lg:mt-0 lg:gap-4">
           {slice.items.length > 0 &&
             slice.items.map((item, index) => {
               return (

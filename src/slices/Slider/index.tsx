@@ -58,18 +58,23 @@ const Slider = ({ slice }: SliderProps): JSX.Element => {
                                   className="text-primary"
                                   fill="lightgray"
                                 />
-                                <span className="text-3xl font-extrabold">
+                                <span className="mb-4 text-3xl font-extrabold">
                                   {item.town}
                                 </span>
                               </>
                             )}
                             {isFilled.keyText(item.value) && (
-                              <p className="py-4 text-5xl font-bold text-primary lg:py-8">
+                              <p className="p-4 text-5xl font-bold text-primary lg:py-8">
                                 {item.value}
                               </p>
                             )}
                             {isFilled.keyText(item.make_and_model) && (
-                              <p className="py-4 text-2xl font-medium lg:py-8">
+                              <p className="py-2 text-3xl font-medium lg:py-3">
+                                {item.year}
+                              </p>
+                            )}
+                            {isFilled.keyText(item.make_and_model) && (
+                              <p className="pb-2 text-2xl font-medium lg:pb-4">
                                 {item.make_and_model}
                               </p>
                             )}

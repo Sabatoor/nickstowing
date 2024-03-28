@@ -1651,11 +1651,50 @@ export type ImageWithTextSliceLeftImage = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *ImageWithText → Primary*
+ */
+export interface ImageWithTextSliceSquareImagePrimary {
+  /**
+   * Text field in *ImageWithText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField
+
+  /**
+   * Image field in *ImageWithText → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+}
+
+/**
+ * Square Image variation for ImageWithText Slice
+ *
+ * - **API ID**: `squareImage`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageWithTextSliceSquareImage = prismic.SharedSliceVariation<
+  'squareImage',
+  Simplify<ImageWithTextSliceSquareImagePrimary>,
+  never
+>
+
+/**
  * Slice variation for *ImageWithText*
  */
 type ImageWithTextSliceVariation =
   | ImageWithTextSliceDefault
   | ImageWithTextSliceLeftImage
+  | ImageWithTextSliceSquareImage
 
 /**
  * ImageWithText Shared Slice
@@ -2305,9 +2344,11 @@ declare module '@prismicio/client' {
       ImageWithTextSlice,
       ImageWithTextSliceDefaultPrimary,
       ImageWithTextSliceLeftImagePrimary,
+      ImageWithTextSliceSquareImagePrimary,
       ImageWithTextSliceVariation,
       ImageWithTextSliceDefault,
       ImageWithTextSliceLeftImage,
+      ImageWithTextSliceSquareImage,
       MenuItemSlice,
       MenuItemSliceDefaultPrimary,
       MenuItemSliceWithSubMenuPrimary,

@@ -24,10 +24,14 @@ const ImageWithText = ({ slice }: ImageWithTextProps): JSX.Element => {
       <div className={cn('grid p-4 lg:grid-cols-5 lg:p-8')}>
         <div
           className={cn(
-            'rounded-lg bg-primary-foreground/80 p-4 shadow-md backdrop-blur lg:col-span-2 lg:p-8',
+            'rounded-lg bg-primary-foreground/80 p-4 shadow-md backdrop-blur  lg:p-8',
             {
-              'order-1 -mb-4 lg:-mr-4': slice.variation === 'default',
-              'order-2 -mt-4 lg:-ml-4': slice.variation === 'leftImage',
+              'order-1 -mb-4 lg:col-span-2 lg:-mr-4':
+                slice.variation === 'default',
+              'order-1 -mb-4 lg:col-span-3 lg:-mr-4':
+                slice.variation === 'squareImage',
+              'order-2 -mt-4 lg:col-span-2 lg:-ml-4':
+                slice.variation === 'leftImage',
             },
           )}
         >
@@ -35,14 +39,18 @@ const ImageWithText = ({ slice }: ImageWithTextProps): JSX.Element => {
         </div>
         <div
           className={cn('flex items-center lg:col-span-3', {
-            'order-1 lg:-mr-8': slice.variation === 'leftImage',
-            'order-2 lg:-ml-4': slice.variation === 'default',
+            'order-1 lg:col-span-3 lg:-mr-8': slice.variation === 'leftImage',
+            'order-2 lg:col-span-3 lg:-ml-4': slice.variation === 'default',
+            'order-1 lg:col-span-2 lg:-mr-8': slice.variation === 'squareImage',
           })}
         >
           <PrismicNextImage
             field={slice.primary.image}
             className="rounded-md shadow"
-            imgixParams={{ ar: '16:9', fit: 'crop' }}
+            imgixParams={{
+              ar: slice.variation === 'squareImage' ? '1:1' : '16:9',
+              fit: 'crop',
+            }}
           />
         </div>
       </div>

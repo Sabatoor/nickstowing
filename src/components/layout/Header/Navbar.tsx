@@ -8,10 +8,9 @@ import {
 } from '../../../../prismicio-types'
 import Section from '../Section'
 import CallNow from './CallNow'
-import PhoneTitle from './PhoneTitle'
 import Menu from './Menu'
 import MobileMenu from './MobileMenu'
-import Image from 'next/image'
+import PhoneTitle from './PhoneTitle'
 
 type NavbarProps = {
   data: LayoutDocumentData
@@ -45,6 +44,7 @@ const Navbar = ({ data, settings }: NavbarProps): JSX.Element => {
       <Section width="xl">
         <div className="flex items-center justify-between">
           <PhoneTitle
+            logo={data.logo}
             phone={settings.phone}
             call_link={data.call_link}
             site_title={settings.site_title}

@@ -196,6 +196,17 @@ interface LayoutDocumentData {
   call_link: prismic.LinkField
 
   /**
+   * Logo field in *Layout*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.logo
+   * - **Tab**: Header
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>
+
+  /**
    * Slice Zone field in *Layout*
    *
    * - **Field Type**: Slice Zone

@@ -11,6 +11,7 @@ const Header = async () => {
       layout {
         call_label
         call_link
+        logo
         slices {
           ...on menu_item {
             variation {

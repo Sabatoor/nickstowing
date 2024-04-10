@@ -4,11 +4,11 @@ import FooterCallNow from './FooterCallNow'
 
 const Footer = async () => {
   const client = createClient()
-  const layout = await client.getSingle('layout', {
+  const layout = await client.getSingle('site_layout', {
     // fetchLinks: ['sub_menu.slices'],
     graphQuery: `
     {
-      layout {
+      site_layout {
         copyright
         call_label
         call_link

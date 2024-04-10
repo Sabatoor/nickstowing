@@ -717,6 +717,117 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >
 
+type SiteLayoutDocumentDataSlicesSlice = MenuItemSlice
+
+type SiteLayoutDocumentDataSlices1Slice = FooterItemSlice
+
+/**
+ * Content for Site Layout documents
+ */
+interface SiteLayoutDocumentData {
+  /**
+   * Call Label field in *Site Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_layout.call_label
+   * - **Tab**: Header
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  call_label: prismic.KeyTextField
+
+  /**
+   * Call Link field in *Site Layout*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_layout.call_link
+   * - **Tab**: Header
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  call_link: prismic.LinkField
+
+  /**
+   * Logo field in *Site Layout*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_layout.logo
+   * - **Tab**: Header
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>
+
+  /**
+   * Slice Zone field in *Site Layout*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_layout.slices[]
+   * - **Tab**: Header
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<SiteLayoutDocumentDataSlicesSlice> /**
+   * Privacy Label field in *Site Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_layout.privacy_label
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  privacy_label: prismic.KeyTextField
+
+  /**
+   * Privacy Link field in *Site Layout*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_layout.privacy_link
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  privacy_link: prismic.LinkField
+
+  /**
+   * Copyright field in *Site Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_layout.copyright
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  copyright: prismic.KeyTextField
+
+  /**
+   * Slice Zone field in *Site Layout*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_layout.slices1[]
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices1: prismic.SliceZone<SiteLayoutDocumentDataSlices1Slice>
+}
+
+/**
+ * Site Layout document from Prismic
+ *
+ * - **API ID**: `site_layout`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SiteLayoutDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SiteLayoutDocumentData>,
+    'site_layout',
+    Lang
+  >
+
 type SubMenuDocumentDataSlicesSlice = SubMenuItemSlice | SubMenuHeadingSlice
 
 type SubMenuDocumentDataSlices1Slice = SubMenuItemSlice | SubMenuHeadingSlice
@@ -783,6 +894,7 @@ export type AllDocumentTypes =
   | PortfolioDocument
   | ServiceDocument
   | SettingsDocument
+  | SiteLayoutDocument
   | SubMenuDocument
 
 /**
@@ -2300,6 +2412,10 @@ declare module '@prismicio/client' {
       ServiceDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
+      SiteLayoutDocument,
+      SiteLayoutDocumentData,
+      SiteLayoutDocumentDataSlicesSlice,
+      SiteLayoutDocumentDataSlices1Slice,
       SubMenuDocument,
       SubMenuDocumentData,
       SubMenuDocumentDataSlicesSlice,

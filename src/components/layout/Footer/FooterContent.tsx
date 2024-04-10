@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 import {
-  LayoutDocumentData,
+  SiteLayoutDocumentData,
   SettingsDocumentData,
 } from '../../../../prismicio-types'
 import Section from '../Section'
@@ -11,7 +11,7 @@ import { PrismicNextLink } from '@prismicio/next'
 import { CopyrightIcon } from 'lucide-react'
 
 type FooterContentProps = {
-  data: LayoutDocumentData
+  data: SiteLayoutDocumentData
   settings: SettingsDocumentData
 }
 const FooterContent = ({ data, settings }: FooterContentProps): JSX.Element => {

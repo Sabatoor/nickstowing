@@ -3,8 +3,8 @@ import { cn } from '@/lib/utils'
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { useRef, useState } from 'react'
 import {
-  LayoutDocumentData,
   SettingsDocumentData,
+  SiteLayoutDocumentData,
 } from '../../../../prismicio-types'
 import Section from '../Section'
 import CallNow from './CallNow'
@@ -13,7 +13,7 @@ import MobileMenu from './MobileMenu'
 import PhoneTitle from './PhoneTitle'
 
 type NavbarProps = {
-  data: LayoutDocumentData
+  data: SiteLayoutDocumentData
   settings: SettingsDocumentData
 }
 

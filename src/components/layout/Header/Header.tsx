@@ -1,14 +1,14 @@
 import { createClient } from '@/prismicio'
 import Navbar from './Navbar'
-import { LayoutDocumentData } from '../../../../prismicio-types'
+import { SiteLayoutDocumentData } from '../../../../prismicio-types'
 
 const Header = async () => {
   const client = createClient()
-  const layout = await client.getSingle('layout', {
+  const layout = await client.getSingle('site_layout', {
     // fetchLinks: ['sub_menu.slices'],
     graphQuery: `
     {
-      layout {
+      site_layout {
         call_label
         call_link
         logo
@@ -39,7 +39,7 @@ const Header = async () => {
     `,
   })
   const settings = await client.getSingle('settings')
-  const layoutData: LayoutDocumentData = layout.data
+  const layoutData: SiteLayoutDocumentData = layout.data
   const { data } = settings
   return (
     <>

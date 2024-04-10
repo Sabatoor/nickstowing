@@ -12,13 +12,13 @@ import { components } from '@/slices'
 import { PrismicNextLink } from '@prismicio/next'
 import { SliceZone } from '@prismicio/react'
 import {
-  LayoutDocumentData,
+  SiteLayoutDocumentData,
   MenuItemSliceWithSubMenuPrimary,
   SubMenuDocument,
 } from '../../../../prismicio-types'
 
 type MenuProps = {
-  data: LayoutDocumentData
+  data: SiteLayoutDocumentData
   className?: string
 }
 

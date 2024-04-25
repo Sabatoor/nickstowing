@@ -165,117 +165,6 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >
 
-type LayoutDocumentDataSlicesSlice = MenuItemSlice
-
-type LayoutDocumentDataSlices1Slice = FooterItemSlice
-
-/**
- * Content for Layout documents
- */
-interface LayoutDocumentData {
-  /**
-   * Call Label field in *Layout*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: What should the call button say?
-   * - **API ID Path**: layout.call_label
-   * - **Tab**: Header
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  call_label: prismic.KeyTextField
-
-  /**
-   * Call Link field in *Layout*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: Where should the call button go?
-   * - **API ID Path**: layout.call_link
-   * - **Tab**: Header
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  call_link: prismic.LinkField
-
-  /**
-   * Logo field in *Layout*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: layout.logo
-   * - **Tab**: Header
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  logo: prismic.ImageField<never>
-
-  /**
-   * Slice Zone field in *Layout*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: layout.slices[]
-   * - **Tab**: Header
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<LayoutDocumentDataSlicesSlice> /**
-   * Privacy Label field in *Layout*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: layout.privacy_label
-   * - **Tab**: Footer
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  privacy_label: prismic.KeyTextField
-
-  /**
-   * Privacy Link field in *Layout*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: layout.privacy_link
-   * - **Tab**: Footer
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  privacy_link: prismic.LinkField
-
-  /**
-   * Copyright field in *Layout*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: layout.copyright
-   * - **Tab**: Footer
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  copyright: prismic.KeyTextField
-
-  /**
-   * Slice Zone field in *Layout*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: layout.slices1[]
-   * - **Tab**: Footer
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices1: prismic.SliceZone<LayoutDocumentDataSlices1Slice>
-}
-
-/**
- * Layout document from Prismic
- *
- * - **API ID**: `layout`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type LayoutDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<LayoutDocumentData>,
-    'layout',
-    Lang
-  >
-
 type LocationDocumentDataSlicesSlice =
   | FaqSlice
   | ImageWithTextSlice
@@ -888,7 +777,6 @@ export type AllDocumentTypes =
   | FooterLayoutDocument
   | GalleryItemDocument
   | HomepageDocument
-  | LayoutDocument
   | LocationDocument
   | PageDocument
   | PortfolioDocument
@@ -2394,10 +2282,6 @@ declare module '@prismicio/client' {
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
-      LayoutDocument,
-      LayoutDocumentData,
-      LayoutDocumentDataSlicesSlice,
-      LayoutDocumentDataSlices1Slice,
       LocationDocument,
       LocationDocumentData,
       LocationDocumentDataSlicesSlice,

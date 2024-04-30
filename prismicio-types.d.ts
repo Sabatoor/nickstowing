@@ -93,6 +93,7 @@ export type GalleryItemDocument<Lang extends string = string> =
   >
 
 type HomepageDocumentDataSlicesSlice =
+  | CommunicationSlice
   | FaqSlice
   | StatisticSlice
   | SliderSlice
@@ -166,6 +167,7 @@ export type HomepageDocument<Lang extends string = string> =
   >
 
 type LocationDocumentDataSlicesSlice =
+  | CommunicationSlice
   | FaqSlice
   | ImageWithTextSlice
   | FeaturesSlice
@@ -257,6 +259,7 @@ export type LocationDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | CommunicationSlice
   | GallerySlice
   | ContentIndexSlice
   | ImageWithTextSlice
@@ -332,7 +335,10 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, 'page', Lang>
 
-type PortfolioDocumentDataSlicesSlice = ImageWithTextSlice | RichTextSlice
+type PortfolioDocumentDataSlicesSlice =
+  | CommunicationSlice
+  | ImageWithTextSlice
+  | RichTextSlice
 
 /**
  * Content for Portfolio documents
@@ -431,6 +437,7 @@ export type PortfolioDocument<Lang extends string = string> =
   >
 
 type ServiceDocumentDataSlicesSlice =
+  | CommunicationSlice
   | FeaturesSlice
   | GallerySlice
   | RichTextSlice
@@ -784,6 +791,61 @@ export type AllDocumentTypes =
   | SettingsDocument
   | SiteLayoutDocument
   | SubMenuDocument
+
+/**
+ * Primary content in *Communication → Items*
+ */
+export interface CommunicationSliceDefaultItem {
+  /**
+   * Heading field in *Communication → Items*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: communication.items[].heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Text field in *Communication → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: communication.items[].text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField
+}
+
+/**
+ * Default variation for Communication Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CommunicationSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Record<string, never>,
+  Simplify<CommunicationSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *Communication*
+ */
+type CommunicationSliceVariation = CommunicationSliceDefault
+
+/**
+ * Communication Shared Slice
+ *
+ * - **API ID**: `communication`
+ * - **Description**: Communication
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CommunicationSlice = prismic.SharedSlice<
+  'communication',
+  CommunicationSliceVariation
+>
 
 /**
  * Primary content in *ContentIndex → Primary*
@@ -2306,6 +2368,10 @@ declare module '@prismicio/client' {
       SubMenuDocumentDataSlices1Slice,
       SubMenuDocumentDataSlices2Slice,
       AllDocumentTypes,
+      CommunicationSlice,
+      CommunicationSliceDefaultItem,
+      CommunicationSliceVariation,
+      CommunicationSliceDefault,
       ContentIndexSlice,
       ContentIndexSliceDefaultPrimary,
       ContentIndexSliceVariation,

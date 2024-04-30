@@ -34,6 +34,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "communication": {
+              "type": "SharedSlice"
+            },
             "faq": {
               "type": "SharedSlice"
             },

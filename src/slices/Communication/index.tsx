@@ -28,9 +28,7 @@ const Communication = ({ slice }: CommunicationProps): JSX.Element => {
               >
                 {isFilled.richText(item.heading) && (
                   <CardHeader className="text-center">
-                    <CardTitle>
-                      <PrismicRichText field={item.heading} />
-                    </CardTitle>
+                    <CardTitle>{asText(item.heading)}</CardTitle>
                   </CardHeader>
                 )}
                 {isFilled.richText(item.text) && (

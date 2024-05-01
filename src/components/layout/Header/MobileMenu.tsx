@@ -18,8 +18,8 @@ import { MenuIcon } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
 import { KeyTextField, isFilled } from '@prismicio/client'
 import {
-  LayoutDocumentData,
   MenuItemSliceWithSubMenuPrimary,
+  SiteLayoutDocumentData,
   SubMenuDocument,
 } from '../../../../prismicio-types'
 import { PrismicNextLink } from '@prismicio/next'
@@ -28,7 +28,7 @@ type MobileMenuProps = {
   className?: string
   site_title: KeyTextField
   phone: KeyTextField
-  data: LayoutDocumentData
+  data: SiteLayoutDocumentData
 }
 
 const MobileMenu = ({
